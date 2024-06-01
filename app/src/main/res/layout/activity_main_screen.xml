@@ -9,20 +9,20 @@
     android:orientation="vertical"
     tools:context=".MainScreen">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:backgroundTint="#4CAF50"
-        android:text="START"
-        android:textSize="45dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+<!--    <Button-->
+<!--        android:id="@+id/button"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:backgroundTint="#4CAF50"-->
+<!--        android:text="START"-->
+<!--        android:textSize="45dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.499" />-->
 
     <FrameLayout
         android:id="@+id/frameLayout"

@@ -34,16 +34,16 @@ class MainScreen : AppCompatActivity() {
             true
         }
 
-        binding.button.setOnClickListener {
-            if(binding.button.text.toString()=="START"){
-                binding.button.text= "STOP"
-                binding.button.setBackgroundColor(resources.getColor(R.color.red))
-            }
-            else{
-                binding.button.text= "START"
-                binding.button.setBackgroundColor(resources.getColor(R.color.green))
-            }
-        }
+//        binding.button.setOnClickListener {
+//            if(binding.button.text.toString()=="START"){
+//                binding.button.text= "STOP"
+//                binding.button.setBackgroundColor(resources.getColor(R.color.red))
+//            }
+//            else{
+//                binding.button.text= "START"
+//                binding.button.setBackgroundColor(resources.getColor(R.color.green))
+//            }
+//        }
 
     }
     private fun replaceWithFragment(fragment : Fragment) {
