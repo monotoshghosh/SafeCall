@@ -27,6 +27,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         binding.btnHomeFragment.setOnClickListener {
             Toast.makeText(activity, "Button clicked!", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     override fun onDestroyView() {

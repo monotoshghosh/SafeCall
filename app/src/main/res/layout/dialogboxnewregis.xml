@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
+    android:layout_gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+    <Button
+        android:id="@+id/dialogExitBtn"
+        android:layout_width="22dp"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/red"
+        android:text="x"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <Button
+        android:id="@+id/dialogSubmitBtn"
+        android:layout_width="94dp"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/green"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Submit"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/NewRegProfilePic"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="49dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewRegName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <EditText
+        android:id="@+id/NewRegName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:hint="Enter Your Name"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewRegAge"
+        app:layout_constraintEnd_toEndOf="@+id/NewRegBloogGroup"
+        app:layout_constraintTop_toBottomOf="@+id/NewRegProfilePic" />
+
+    <EditText
+        android:id="@+id/NewRegAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:hint="Enter Your Age"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewRegBloogGroup"
+        app:layout_constraintStart_toStartOf="@+id/NewRegName"
+        app:layout_constraintTop_toBottomOf="@+id/NewRegName" />
+
+    <EditText
+        android:id="@+id/NewRegBloogGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:hint="Enter Blood Group"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewRegLoc"
+        app:layout_constraintStart_toStartOf="@+id/NewRegLoc"
+        app:layout_constraintTop_toBottomOf="@+id/NewRegAge" />
+
+    <EditText
+        android:id="@+id/NewRegLoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:hint="Enter Your Location"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewRegPhNo"
+        app:layout_constraintStart_toStartOf="@+id/NewRegPhNo"
+        app:layout_constraintTop_toBottomOf="@+id/NewRegBloogGroup" />
+
+    <EditText
+        android:id="@+id/NewRegPhNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="63dp"
+        android:hint="Enter Phone Number"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewRegLoc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

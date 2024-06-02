@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="4dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/person2"
         android:layout_width="110dp"
         android:layout_height="0dp"
         android:layout_marginTop="194dp"
@@ -18,12 +18,19 @@
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView5"
+        app:layout_constraintBottom_toTopOf="@+id/person4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/person1"
         android:layout_width="110dp"
         android:layout_height="0dp"
         android:layout_marginStart="56dp"
@@ -32,14 +39,20 @@
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView6"
+        app:layout_constraintBottom_toTopOf="@+id/person3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2"/>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/person6"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -50,11 +63,19 @@
         app:cardElevation="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView7"
-        app:layout_constraintTop_toBottomOf="@+id/cardView5" />
+        app:layout_constraintStart_toEndOf="@+id/person5"
+        app:layout_constraintTop_toBottomOf="@+id/person4" >
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2"/>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView5"
+        android:id="@+id/person4"
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -63,13 +84,20 @@
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView4"
+        app:layout_constraintBottom_toTopOf="@+id/person6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cardView6"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintStart_toEndOf="@+id/person3"
+        app:layout_constraintTop_toBottomOf="@+id/person2" >
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
+        android:id="@+id/person3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="60dp"
@@ -79,13 +107,20 @@
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView7"
-        app:layout_constraintEnd_toStartOf="@+id/cardView5"
+        app:layout_constraintBottom_toTopOf="@+id/person5"
+        app:layout_constraintEnd_toStartOf="@+id/person4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+        app:layout_constraintTop_toBottomOf="@+id/person1" >
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2"/>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView7"
+        android:id="@+id/person5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="60dp"
@@ -96,9 +131,16 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cardView4"
+        app:layout_constraintEnd_toStartOf="@+id/person6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView6" />
+        app:layout_constraintTop_toBottomOf="@+id/person3" >
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:src="@drawable/add_image2"/>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/textView2"

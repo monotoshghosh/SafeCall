@@ -21,6 +21,8 @@ class MainScreen : AppCompatActivity() {
             insets
         }
 
+        obj().newRegistrationDialogBox(this)
+
         replaceWithFragment(Home_Fragment())
 
         binding.bnView.setOnItemSelectedListener {
