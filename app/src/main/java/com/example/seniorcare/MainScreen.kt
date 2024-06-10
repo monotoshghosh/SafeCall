@@ -1,5 +1,6 @@
 package com.example.seniorcare
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,15 +14,17 @@ class MainScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
 
-        obj().newRegistrationDialogBox(this)
+        if(!isUserInfoSaved()){
+            obj().newRegistrationDialogBox(this)
+        }
 
         replaceWithFragment(Home_Fragment())
 
@@ -35,13 +38,21 @@ class MainScreen : AppCompatActivity() {
             }
             true
         }
-
     }
     private fun replaceWithFragment(fragment : Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
+    }
+
+    private fun isUserInfoSaved(): Boolean {        // THIS IS CHECK IF DATA IS SAVED OR NOT
+        val sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        return sharedPreferences.contains("Name") &&
+                sharedPreferences.contains("Age") &&
+                sharedPreferences.contains("Blood Group") &&
+                sharedPreferences.contains("Location") &&
+                sharedPreferences.contains("Phone")
     }
 
 
