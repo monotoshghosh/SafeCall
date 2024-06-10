@@ -60,7 +60,7 @@ class obj {
         editor.putString("Age",age)
         editor.putString("Blood Group",bloodGroup)
         editor.putString("Location", location)
-        editor.putString("Phone No", phoneNo)
+        editor.putString("Phone", phoneNo)
         editor.apply()
 
     }
