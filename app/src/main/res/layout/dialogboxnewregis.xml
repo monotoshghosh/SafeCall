@@ -52,6 +52,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/NewRegProfilePicImgView"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -59,8 +60,16 @@
 
     </androidx.cardview.widget.CardView>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <EditText
+
         android:id="@+id/NewRegName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

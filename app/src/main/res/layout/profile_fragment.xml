@@ -30,15 +30,15 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="101dp"
-        android:layout_height="103dp"
+        android:id="@+id/adminProfilePic"
+        android:layout_width="133dp"
+        android:layout_height="129dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.161"
+        app:srcCompat="@drawable/profilepic1" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="250dp"
@@ -51,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384">
+        app:layout_constraintVertical_bias="0.447">
 
         <TextView
             android:id="@+id/proName"
@@ -65,27 +65,25 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="109dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#F3F3F4"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
+        android:layout_width="85dp"
+        android:layout_height="29dp"
+        android:backgroundTint="#2BB804"
+        app:cardCornerRadius="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488">
+        app:layout_constraintVertical_bias="0.88">
 
         <TextView
-            android:id="@+id/proAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="21"
-            android:textColor="#595A5A"
-            android:textSize="25dp"
+            android:text="Setting"
+            android:textColor="@color/white"
+            android:textSize="17dp"
             android:textStyle="bold" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -99,7 +97,7 @@
         app:layout_constraintHorizontal_bias="0.731"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488">
+        app:layout_constraintVertical_bias="0.551">
 
         <TextView
             android:id="@+id/proBloodGroup"
@@ -123,7 +121,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59">
+        app:layout_constraintVertical_bias="0.653">
 
         <TextView
             android:id="@+id/proLocation"
@@ -147,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695">
+        app:layout_constraintVertical_bias="0.758">
 
         <TextView
             android:id="@+id/proPhoneNo"
@@ -161,28 +159,28 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="85dp"
-        android:layout_height="29dp"
-        android:backgroundTint="#2BB804"
-        app:cardCornerRadius="3dp"
+        android:layout_width="109dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#F3F3F4"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819">
+        app:layout_constraintVertical_bias="0.551">
 
         <TextView
+            android:id="@+id/proAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Setting"
-            android:textColor="@color/white"
-            android:textSize="17dp"
+            android:text="21"
+            android:textColor="#595A5A"
+            android:textSize="25dp"
             android:textStyle="bold" />
-
     </androidx.cardview.widget.CardView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

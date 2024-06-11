@@ -55,7 +55,6 @@
         android:id="@+id/person6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:layout_marginEnd="61dp"
         android:layout_marginBottom="89dp"
         android:backgroundTint="#F8F5F5"
