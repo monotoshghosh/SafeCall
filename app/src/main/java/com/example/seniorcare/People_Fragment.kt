@@ -15,9 +15,6 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
     private var _binding: PeopleFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private val obj = obj()
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,14 +42,18 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
                 }
 
                 if (personKey.isNotEmpty() && !isPersonInfoSaved(personKey, it.context)) {
-                    obj.newRegistrationDialogBox(it.context, personKey)
+                    obj().newRegistrationDialogBox(it.context, personKey)
                 }
                 else{
                     Toast.makeText(requireContext(), "Person Already Saved !!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+
+
     }
+
+
 
 
     private fun isPersonInfoSaved(personKey: String, context: Context): Boolean {
@@ -68,6 +69,8 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
         super.onDestroyView()
         _binding = null
     }
+
+
 
 
 }

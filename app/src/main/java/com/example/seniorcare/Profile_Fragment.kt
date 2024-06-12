@@ -34,8 +34,6 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment) {
         val bloodGroup = sharedPreferences.getString("Blood Group", "Not Set")
         val location = sharedPreferences.getString("Location", "Not Set")
         val phone = sharedPreferences.getString("Phone", "Not Set")
-        val imageUri = sharedPreferences.getString("ImageUri", null)
-
 
 
         binding.proName.text = "Name: $name"
@@ -43,9 +41,9 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment) {
         binding.proBloodGroup.text = "Blood Group: $bloodGroup"
         binding.proLocation.text = "Location: $location"
         binding.proPhoneNo.text = "Phone Number: $phone"
-        imageUri?.let {
-            binding.adminProfilePic.setImageURI(Uri.parse(it))
-        }
+
+
+
 
     }
 

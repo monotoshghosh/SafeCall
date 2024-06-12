@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <ImageView
+            android:id="@+id/person2Img"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
@@ -44,6 +45,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/person1Img"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
@@ -66,6 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/person4" >
 
         <ImageView
+            android:id="@+id/person6Img"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
@@ -89,6 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/person2" >
 
         <ImageView
+            android:id="@+id/person4Img"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
@@ -112,6 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/person1" >
 
         <ImageView
+            android:id="@+id/person3Img"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
@@ -135,6 +140,7 @@
         app:layout_constraintTop_toBottomOf="@+id/person3" >
 
         <ImageView
+            android:id="@+id/person5Img"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
