@@ -44,7 +44,6 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment) {
 
 
 
-
     }
 
     override fun onDestroyView() {
