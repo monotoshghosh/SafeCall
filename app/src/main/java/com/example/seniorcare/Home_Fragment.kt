@@ -35,22 +35,26 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
             val adminName = getAdminName()
             val locationService = LocationService(requireContext())
 
-            locationService.getCurrentLocation { location ->
-                val message: String
-                if (location != null) {
-                    val googleMapsLink = getGoogleMapsLink(location)
-                    message = "Admin $adminName is currently at $googleMapsLink"
-                } else {
-                    message = "Admin $adminName is currently at an unknown location."
-                }
-
-                val phoneNumbers = getSavedPersonNumbers()
-                if (phoneNumbers.isNotEmpty()) {
-                    phoneNumbers.forEach { phoneNumber ->
-                        sendSms(phoneNumber, message)
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 101)
+            } else {
+                locationService.getCurrentLocation { location ->
+                    val message: String
+                    if (location != null) {
+                        val googleMapsLink = getGoogleMapsLink(location)
+                        message = "Admin $adminName is currently at $googleMapsLink"
+                    } else {
+                        message = "Admin $adminName is currently at an unknown location."
                     }
-                } else {
-                    Toast.makeText(requireContext(), "No phone numbers saved", Toast.LENGTH_SHORT).show()
+
+                    val phoneNumbers = getSavedPersonNumbers()
+                    if (phoneNumbers.isNotEmpty()) {
+                        phoneNumbers.forEach { phoneNumber ->
+                            sendSms(phoneNumber, message)
+                        }
+                    } else {
+                        Toast.makeText(requireContext(), "No phone numbers saved", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }

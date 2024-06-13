@@ -20,9 +20,27 @@ class LocationService(private val context: Context) {
         }
 
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-            callback(location)
+            if (location != null) {
+                callback(location)
+            } else {
+                fusedLocationClient.requestLocationUpdates(createLocationRequest(), object : LocationCallback() {
+                    override fun onLocationResult(locationResult: LocationResult) {
+                        super.onLocationResult(locationResult)
+                        fusedLocationClient.removeLocationUpdates(this)
+                        callback(locationResult.lastLocation)
+                    }
+                }, null)
+            }
         }.addOnFailureListener {
             callback(null)
+        }
+    }
+
+    private fun createLocationRequest(): LocationRequest {
+        return LocationRequest.create().apply {
+            interval = 10000
+            fastestInterval = 5000
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         }
     }
 }
