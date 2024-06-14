@@ -44,7 +44,6 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                     val message: String
                     if (location != null) {
                         val googleMapsLink = getGoogleMapsLink(location)
-                        val placeName = "Hello"
                         message = "Admin $adminName is currently at : $googleMapsLink"
                     } else {
                         message = "Admin $adminName is currently at an unknown location."
@@ -98,15 +97,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         return "https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}"
     }
 
-//    private fun getPlaceName(location: Location): String {
-//        val geocoder = Geocoder(requireContext(), Locale.getDefault())
-//        val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
-//        return if (!addresses.isNullOrEmpty()) {
-//            addresses[0].getAddressLine(0)
-//        } else {
-//            "an unknown place"
-//        }
-//    }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
