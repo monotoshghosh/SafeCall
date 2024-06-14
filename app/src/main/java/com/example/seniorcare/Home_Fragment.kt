@@ -3,6 +3,7 @@ package com.example.seniorcare
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.example.seniorcare.databinding.HomeFragmentBinding
 import android.telephony.SmsManager
 import android.widget.Toast
+import java.util.Locale
 
 class Home_Fragment : Fragment(R.layout.home_fragment) {
 
@@ -42,7 +44,8 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                     val message: String
                     if (location != null) {
                         val googleMapsLink = getGoogleMapsLink(location)
-                        message = "Admin $adminName is currently at $googleMapsLink"
+                        val placeName = "Hello"
+                        message = "Admin $adminName is currently at : $googleMapsLink"
                     } else {
                         message = "Admin $adminName is currently at an unknown location."
                     }
@@ -94,6 +97,16 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
     private fun getGoogleMapsLink(location: Location): String {
         return "https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}"
     }
+
+//    private fun getPlaceName(location: Location): String {
+//        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+//        val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+//        return if (!addresses.isNullOrEmpty()) {
+//            addresses[0].getAddressLine(0)
+//        } else {
+//            "an unknown place"
+//        }
+//    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
