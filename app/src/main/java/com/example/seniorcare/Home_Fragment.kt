@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
+    private val TAG = "Home_Fragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,11 +46,13 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                     val message: String
                     if (location != null) {
                         val googleMapsLink = getGoogleMapsLink(location)
-                        message = "Admin $adminName is currently at : $googleMapsLink"
+                        val placeName = getPlaceName(location)
+                        message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location: $placeName.\nYou can also view the location on Google Maps here:\n$googleMapsLink"
                     } else {
-                        message = "Admin $adminName is currently at an unknown location."
+                        message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location is unknown."
                     }
 
+                    Log.d(TAG, "Generated message: $message")
                     val phoneNumbers = getSavedPersonNumbers()
                     if (phoneNumbers.isNotEmpty()) {
                         phoneNumbers.forEach { phoneNumber ->
@@ -85,10 +89,13 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         } else {
             try {
                 val smsManager = SmsManager.getDefault()
-                smsManager.sendTextMessage(phoneNumber, null, message, null, null)
+                val parts = smsManager.divideMessage(message)
+                smsManager.sendMultipartTextMessage(phoneNumber, null, parts, null, null)
                 Toast.makeText(requireContext(), "SMS sent to $phoneNumber", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "SMS sent to $phoneNumber")
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Failed to send SMS: ${e.message}", Toast.LENGTH_SHORT).show()
+                Log.e(TAG, "Failed to send SMS to $phoneNumber: ${e.message}")
             }
         }
     }
@@ -97,7 +104,15 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         return "https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}"
     }
 
-
+    private fun getPlaceName(location: Location): String {
+        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+        val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+        return if (!addresses.isNullOrEmpty()) {
+            addresses[0].getAddressLine(0)
+        } else {
+            "an unknown place"
+        }
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
