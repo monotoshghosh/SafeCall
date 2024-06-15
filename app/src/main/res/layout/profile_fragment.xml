@@ -63,7 +63,6 @@
         android:foregroundGravity="center"
         android:layout_marginTop="20dp">
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView16"
             android:layout_width="109dp"
@@ -125,10 +124,6 @@
             android:textSize="25dp"
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
-
-
-
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView17"
