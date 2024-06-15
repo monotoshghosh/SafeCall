@@ -35,11 +35,11 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment) {
         val phone = sharedPreferences.getString("Phone", "Not Set")
 
 
-        binding.proName.text = "Name: $name"
-        binding.proAge.text = "Age: $age"
-        binding.proBloodGroup.text = "Blood Group: $bloodGroup"
-        binding.proLocation.text = "Location: $location"
-        binding.proPhoneNo.text = "Phone Number: $phone"
+        binding.proName.text = "$name"
+        binding.proAge.text = "$age"
+        binding.proBloodGroup.text = "$bloodGroup"
+        binding.proLocation.text = "$location"
+        binding.proPhoneNo.text = "$phone"
 
 
 

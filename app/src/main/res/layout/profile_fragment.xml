@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="42dp"
         android:layout_height="22dp"
         android:backgroundTint="#D61204"
         app:cardCornerRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041">
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="300dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +22,7 @@
             android:text="Edit"
             android:textColor="@color/white"
             android:textSize="15dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
     </androidx.cardview.widget.CardView>
 
@@ -33,25 +30,19 @@
         android:id="@+id/adminProfilePic"
         android:layout_width="133dp"
         android:layout_height="129dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161"
-        app:srcCompat="@drawable/profilepic1" />
+        app:srcCompat="@drawable/profilepic1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="55dp"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView20"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:backgroundTint="#F3F3F4"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447">
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:id="@+id/proName"
@@ -64,64 +55,65 @@
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        android:layout_marginTop="20dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView16"
+            android:layout_width="109dp"
+            android:layout_height="45dp"
+            android:backgroundTint="#F3F3F4"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            android:layout_marginRight="33dp">
+
+            <TextView
+                android:id="@+id/proBloodGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="B+"
+                android:textColor="#595A5A"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView9"
+            android:layout_width="109dp"
+            android:layout_height="45dp"
+            android:backgroundTint="#F3F3F4"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <TextView
+                android:id="@+id/proAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="21"
+                android:textColor="#595A5A"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
     <androidx.cardview.widget.CardView
-        android:layout_width="85dp"
-        android:layout_height="29dp"
-        android:backgroundTint="#2BB804"
-        app:cardCornerRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Setting"
-            android:textColor="@color/white"
-            android:textSize="17dp"
-            android:textStyle="bold" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="109dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#F3F3F4"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551">
-
-        <TextView
-            android:id="@+id/proBloodGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="B+"
-            android:textColor="#595A5A"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView18"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:backgroundTint="#F3F3F4"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653">
+        android:layout_marginTop="19dp"
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:id="@+id/proLocation"
@@ -134,18 +126,19 @@
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
+
+
+
+
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView17"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:backgroundTint="#F3F3F4"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758">
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:id="@+id/proPhoneNo"
@@ -155,32 +148,28 @@
             android:text="+91 9002655732"
             android:textColor="#595A5A"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="109dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#F3F3F4"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551">
+        android:id="@+id/cardView19"
+        android:layout_width="85dp"
+        android:layout_height="29dp"
+        android:backgroundTint="#2BB804"
+        app:cardCornerRadius="3dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/proAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="21"
-            android:textColor="#595A5A"
-            android:textSize="25dp"
+            android:text="Setting"
+            android:textColor="@color/white"
+            android:textSize="17dp"
             android:textStyle="bold" />
+
     </androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
