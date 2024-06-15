@@ -3,5 +3,22 @@
     <style name="Base.Theme.SeniorCare" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+
+        <item name="android:colorPrimary">#58A5F8</item>
+        <item name="colorPrimaryDark">#0664CA</item>
+        <item name="android:colorPrimaryDark">#0664CA</item>
+        <item name="android:colorAccent">#5095DF</item>
+        <item name="colorAccent">#5095DF</item>
+
+    </style>
+
+    <!--   THIS TO REMOVE BACKGROUND OF ICON OF BNB   -->
+    <style name="Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 </resources>

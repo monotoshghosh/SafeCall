@@ -3,7 +3,20 @@
     <style name="Base.Theme.SeniorCare" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
     </style>
 
     <style name="Theme.SeniorCare" parent="Base.Theme.SeniorCare" />
+
+    <!--   THIS TO REMOVE BACKGROUND OF ICON OF BNB   -->
+    <style name="Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+
+
 </resources>

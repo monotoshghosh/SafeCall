@@ -1,20 +1,11 @@
 package com.example.seniorcare
 
-import android.app.Activity
+
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
-import android.provider.MediaStore
-import android.util.Base64
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
-import java.io.ByteArrayOutputStream
 
 class obj {
 

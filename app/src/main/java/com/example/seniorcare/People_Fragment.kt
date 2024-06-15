@@ -50,10 +50,7 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
             }
         }
 
-
     }
-
-
 
 
     private fun isPersonInfoSaved(personKey: String, context: Context): Boolean {
@@ -64,6 +61,7 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
                 sharedPreferences.contains("${personKey}_Location") &&
                 sharedPreferences.contains("${personKey}_Phone")
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

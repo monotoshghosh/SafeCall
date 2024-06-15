@@ -14,15 +14,25 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#DCF9FAFB"
-        app:itemRippleColor="#1E10B4E6"
+        android:layout_height="63dp"
+        app:itemPaddingTop="10dp"
+
+
+        style="@style/Widget.BottomNavigationView"
+        app:itemTextColor="@color/bnb_item_color"
+        app:itemIconTint="@color/bnb_item_color"
+        app:labelVisibilityMode="labeled"
+
+
+        android:background="#DCF6F6F6"
         app:menu="@menu/items" />
+
+    <!--        app:itemRippleColor="#DCF9FAFB" -->
 
 
 </LinearLayout>
