@@ -11,6 +11,8 @@ import com.example.seniorcare.databinding.ActivityMainScreenBinding
 class MainScreen : AppCompatActivity() {
     private lateinit var binding: ActivityMainScreenBinding
 
+    private var isAppOpenedFirstTime = true // THIS IS FOR THE SOUND TO CHECK IF THE APP OPEN FIRST TIME
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,7 @@ class MainScreen : AppCompatActivity() {
             obj().newRegistrationDialogBox(this)
         }
 
-        replaceWithFragment(Home_Fragment())
+//        replaceWithFragment(Home_Fragment())
 
         binding.bnView.setOnItemSelectedListener {
             when(it.itemId){
@@ -45,7 +47,9 @@ class MainScreen : AppCompatActivity() {
             true
         }
 
-        binding.bnView.selectedItemId =R.id.itemHomeId
+        if(savedInstanceState == null){
+            binding.bnView.selectedItemId =R.id.itemHomeId
+        }
 
 
 
@@ -55,6 +59,13 @@ class MainScreen : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
+
+        if (isAppOpenedFirstTime){
+            isAppOpenedFirstTime = false
+        }
+        else{
+            objSound.btnSound(this)
+        }
     }
 
     private fun isUserInfoSaved(): Boolean {             // THIS IS CHECK IF DATA IS SAVED OR NOT
@@ -69,3 +80,18 @@ class MainScreen : AppCompatActivity() {
 
 
 }
+
+
+// People Fragment:
+//=================
+// 1.  Layout Change
+
+
+// Home Fragment:
+//===============
+// 1. When start Pressed Check if all permissions are enabled
+
+
+// Profile Fragment:
+//=================
+
