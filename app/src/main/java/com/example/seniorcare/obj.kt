@@ -13,6 +13,8 @@ import androidx.core.content.ContentProviderCompat.requireContext
 class obj {
 
 
+
+
     fun savedPersonInfoDialogBox (context:Context,personKey: String) {
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.savedpersoninfodialogbox)
@@ -71,7 +73,7 @@ class obj {
 
     }
 
-    fun newRegistrationDialogBox (context:Context,personKey: String? = null){
+    fun newRegistrationDialogBox (context:Context,personKey: String? = null, listener: OnProfileUpdatedListener? = null){
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialogboxnewregis)
         dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
@@ -113,6 +115,8 @@ class obj {
 
                 dialog.dismiss()
                 Toast.makeText(context, "Information Saved", Toast.LENGTH_SHORT).show()
+                listener?.onProfileUpdated() // Trigger the callback
+
             }
             else{
                 Toast.makeText(context, "Please fill all the Details", Toast.LENGTH_SHORT).show()

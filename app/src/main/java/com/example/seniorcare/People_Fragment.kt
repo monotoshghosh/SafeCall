@@ -49,6 +49,7 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
                     obj().savedPersonInfoDialogBox(requireContext(),personKey)
 
 
+
                 }
             }
         }

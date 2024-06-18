@@ -7,24 +7,24 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="42dp"
-        android:layout_height="22dp"
-        android:backgroundTint="#D61204"
-        app:cardCornerRadius="3dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="300dp">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="42dp"-->
+<!--        android:layout_height="22dp"-->
+<!--        android:backgroundTint="#D61204"-->
+<!--        app:cardCornerRadius="3dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginLeft="300dp">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Edit"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="15dp"-->
+<!--            android:textStyle="bold"/>-->
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
     <ImageView
         android:id="@+id/adminProfilePic"
@@ -32,7 +32,10 @@
         android:layout_height="129dp"
         app:srcCompat="@drawable/profilepic1"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="55dp"/>
+        android:layout_marginTop="71dp"/>
+
+        <!--  WHEN EDIT WAS THERE  -->
+        <!--   IMAGE VIEW TOP WAS 55dp  -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView20"
@@ -147,7 +150,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView19"
+        android:id="@+id/editBtnprofileFragment"
         android:layout_width="85dp"
         android:layout_height="29dp"
         android:backgroundTint="#2BB804"
@@ -159,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Setting"
+            android:text="Edit"
             android:textColor="@color/white"
             android:textSize="17dp"
             android:textStyle="bold" />
