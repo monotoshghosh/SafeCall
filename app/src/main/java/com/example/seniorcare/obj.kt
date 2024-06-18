@@ -1,6 +1,7 @@
 package com.example.seniorcare
 
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.widget.Button
@@ -21,10 +22,12 @@ class obj {
         dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
         dialog.setCancelable(false)
         dialog.show()
+        objSound.btnSoundDialogOpen(context as Activity)
 
         val exitBtn =dialog.findViewById<Button>(R.id.exitBtnSavedPersonInfoDilogBox)
         exitBtn.setOnClickListener {
             dialog.dismiss()
+            objSound.btnSound(context)
 
         }
 
@@ -61,6 +64,7 @@ class obj {
             obj().deleteSavePersonInfo(context,personKey)
             dialog.dismiss()
             Toast.makeText(context, "Person Removed", Toast.LENGTH_SHORT).show()
+            objSound.btnSoundRemove(context)
         }
 
 
@@ -68,6 +72,7 @@ class obj {
         editBtn.setOnClickListener {
             dialog.dismiss()
             obj().newRegistrationDialogBox(context,personKey)
+//            objSound.btnSound(context)
         }
 
 
@@ -79,16 +84,16 @@ class obj {
         dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
         dialog.setCancelable(false)
         dialog.show()
+        objSound.btnSoundDialogOpen(context as Activity)
 
         val exitBtn = dialog.findViewById<Button>(R.id.dialogExitBtn)
         exitBtn.setOnClickListener {
             dialog.dismiss()
+            objSound.btnSound(context as Activity)
         }
         
         val submitBtn = dialog.findViewById<Button>(R.id.dialogSubmitBtn)
-        submitBtn.setOnClickListener {
-            Toast.makeText(context, "Submit Button Pressed", Toast.LENGTH_SHORT).show()
-        }
+
 
         val nameInput = dialog.findViewById<EditText>(R.id.NewRegName)
         val ageInput = dialog.findViewById<EditText>(R.id.NewRegAge)
@@ -115,6 +120,7 @@ class obj {
 
                 dialog.dismiss()
                 Toast.makeText(context, "Information Saved", Toast.LENGTH_SHORT).show()
+                objSound.btnSound(context)
                 listener?.onProfileUpdated() // Trigger the callback
 
             }

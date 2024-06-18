@@ -85,6 +85,7 @@ class MainScreen : AppCompatActivity() {
 // People Fragment:
 //=================
 // 1.  Layout Change
+// 2.  Remove Sound
 
 
 // Home Fragment:

@@ -30,8 +30,9 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
         loadProfileData()
 
         binding.editBtnprofileFragment.setOnClickListener {
-            Toast.makeText(requireContext(), "Edit Box Opening", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(requireContext(), "Edit Box Opening", Toast.LENGTH_SHORT).show()
             obj().newRegistrationDialogBox(requireContext(),null,this) // here i am updating the details but not immdediately it is reflected when app reopen or fragmnt switch
+//            objSound.btnSound(requireActivity())
 
         }
 
