@@ -35,6 +35,12 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.btnHome.setOnClickListener {
+//            obj().savedPersonInfoDialogBox(requireContext())
+            Toast.makeText(requireContext(), "btn pressed", Toast.LENGTH_SHORT).show()
+        }
+
         binding.btnHomeFragment.setOnClickListener {
             val adminName = getAdminName()
             val locationService = LocationService(requireContext())

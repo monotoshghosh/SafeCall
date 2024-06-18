@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.location)
 
+    implementation (libs.circleimageview)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

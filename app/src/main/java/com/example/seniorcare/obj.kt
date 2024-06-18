@@ -5,9 +5,71 @@ import android.app.Dialog
 import android.content.Context
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContentProviderCompat.requireContext
 
 class obj {
+
+
+    fun savedPersonInfoDialogBox (context:Context,personKey: String) {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.savedpersoninfodialogbox)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
+        dialog.setCancelable(false)
+        dialog.show()
+
+        val exitBtn =dialog.findViewById<Button>(R.id.exitBtnSavedPersonInfoDilogBox)
+        exitBtn.setOnClickListener {
+            dialog.dismiss()
+
+        }
+
+
+
+        val sharedPreferences = context.getSharedPreferences("PeopleInfo", Context.MODE_PRIVATE)
+
+        val name = sharedPreferences.getString("${personKey}_Name","NULL")
+        val age = sharedPreferences.getString("${personKey}_Age","NULL")
+        val bloodGroup = sharedPreferences.getString("${personKey}_BloodGroup","NULL")
+        val location = sharedPreferences.getString("${personKey}_Location","NULL")
+        val phone = sharedPreferences.getString("${personKey}_Phone","NULL")
+
+        val nameTextView = dialog.findViewById<TextView>(R.id.nameSavedPersonInfoDilogBox)
+        nameTextView.text = name
+
+        val ageTextView = dialog.findViewById<TextView>(R.id.ageSavedPersonInfoDilogBox)
+        ageTextView.text = age
+
+        val bloodGroupTextView = dialog.findViewById<TextView>(R.id.bloodgroupSavedPersonInfoDilogBox)
+        bloodGroupTextView.text = bloodGroup
+
+        val locationTextView = dialog.findViewById<TextView>(R.id.locationSavedPersonInfoDilogBox)
+        locationTextView.text = location
+
+        val phoneTextView = dialog.findViewById<TextView>(R.id.phoneNoSavedPersonInfoDilogBox)
+        phoneTextView.text = phone
+
+
+
+
+        val removeBtn = dialog.findViewById<CardView>(R.id.removeSavedPersonInfoDilogBox)
+        removeBtn.setOnClickListener {
+            obj().deleteSavePersonInfo(context,personKey)
+            dialog.dismiss()
+            Toast.makeText(context, "Person Removed", Toast.LENGTH_SHORT).show()
+        }
+
+
+        val editBtn = dialog.findViewById<CardView>(R.id.editSavedPersonInfoDilogBox)
+        editBtn.setOnClickListener {
+            dialog.dismiss()
+            obj().newRegistrationDialogBox(context,personKey)
+        }
+
+
+    }
 
     fun newRegistrationDialogBox (context:Context,personKey: String? = null){
         val dialog = Dialog(context)
@@ -79,6 +141,17 @@ class obj {
         editor.putString("${personKey}_BloodGroup", bloodGroup)
         editor.putString("${personKey}_Location", location)
         editor.putString("${personKey}_Phone", phoneNo)
+        editor.apply()
+    }
+
+    private fun deleteSavePersonInfo(context: Context,personKey: String){
+        val sharedPreferences = context.getSharedPreferences("PeopleInfo", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove("${personKey}_Name")
+        editor.remove("${personKey}_Age")
+        editor.remove("${personKey}_BloodGroup")
+        editor.remove("${personKey}_Location")
+        editor.remove("${personKey}_Phone")
         editor.apply()
     }
 

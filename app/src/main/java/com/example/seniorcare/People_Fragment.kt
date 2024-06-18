@@ -46,6 +46,9 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
                 }
                 else{
                     Toast.makeText(requireContext(), "Person Already Saved !!", Toast.LENGTH_SHORT).show()
+                    obj().savedPersonInfoDialogBox(requireContext(),personKey)
+
+
                 }
             }
         }
