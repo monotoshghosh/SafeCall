@@ -93,6 +93,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 val parts = smsManager.divideMessage(message)
                 smsManager.sendMultipartTextMessage(phoneNumber, null, parts, null, null)
                 Toast.makeText(requireContext(), "SMS sent to $phoneNumber", Toast.LENGTH_SHORT).show()
+                objSound.btnSoundStart(requireActivity())
                 Log.d(TAG, "SMS sent to $phoneNumber")
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Failed to send SMS: ${e.message}", Toast.LENGTH_SHORT).show()

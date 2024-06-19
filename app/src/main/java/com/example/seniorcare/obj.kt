@@ -29,6 +29,8 @@ class obj {
         exitBtn.setOnClickListener {
             if(!obj().isUserInfoSaved(context)){
                 Toast.makeText(context,"Please fill the Details", Toast.LENGTH_SHORT).show()
+                objVibration.vibrate(context)
+                objSound.btnSoundError(context)
             }
             else{
                 dialog.dismiss()
@@ -71,6 +73,8 @@ class obj {
             }
             else{
                 Toast.makeText(context, "Please fill all the Details", Toast.LENGTH_SHORT).show()
+                objVibration.vibrate(context)
+                objSound.btnSoundError(context)
             }
 
         }
