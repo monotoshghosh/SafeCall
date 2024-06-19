@@ -32,6 +32,17 @@ class MainScreen : AppCompatActivity() {
 
         if(!obj().isUserInfoSaved(this)){
             obj().newRegistrationDialogBox(this)
+//            permissionAsk.checkAndRequestLocationPermission(this)
+        }
+
+        // Request both SMS and Location permissions
+        permissionAsk.checkAndRequestPermissions(this)
+//        permissionAsk.checkAndRequestSmsPermission(this)
+
+
+        // Check if location is enabled
+        if (!locationCheck.isLocationEnabled(this)) {
+            locationCheck.promptEnableLocation(this)
         }
 
 //        replaceWithFragment(Home_Fragment())
@@ -66,6 +77,11 @@ class MainScreen : AppCompatActivity() {
         else{
             objSound.btnSound(this)
         }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        permissionAsk.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
     }
 
 

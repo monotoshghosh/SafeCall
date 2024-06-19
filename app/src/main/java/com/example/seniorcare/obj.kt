@@ -1,17 +1,20 @@
 package com.example.seniorcare
 
 
+import android.Manifest
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.pm.PackageManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 class obj {
-
 
 
     fun newRegistrationDialogBox (context:Context,personKey: String? = null, listener: OnProfileUpdatedListener? = null){
