@@ -13,15 +13,6 @@ import androidx.core.content.ContentProviderCompat.requireContext
 
 class obj {
 
-    fun testDialogBox (context:Context) {
-        val dialog = Dialog(context)
-        dialog.setContentView(R.layout.test)
-        dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
-        dialog.setCancelable(false)
-        dialog.show()
-        objSound.btnSoundDialogOpen(context as Activity)
-
-    }
 
 
     fun savedPersonInfoDialogBox (context:Context,personKey: String) {
@@ -100,7 +91,7 @@ class obj {
             objSound.btnSound(context as Activity)
         }
         
-        val submitBtn = dialog.findViewById<Button>(R.id.dialogSubmitBtn)
+        val submitBtn = dialog.findViewById<CardView>(R.id.dialogSubmitBtn)
 
 
         val nameInput = dialog.findViewById<EditText>(R.id.NewRegName)

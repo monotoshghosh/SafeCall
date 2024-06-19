@@ -10,6 +10,7 @@
 
     <Button
         android:id="@+id/exitBtnSavedPersonInfoDilogBox"
+        android:layout_marginTop="10dp"
         android:layout_width="22dp"
         android:layout_height="30dp"
         android:backgroundTint="@color/red"
@@ -21,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/photoCardViewSavedPersonInfoDilogBox"

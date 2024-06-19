@@ -92,6 +92,7 @@ class MainScreen : AppCompatActivity() {
 // Home Fragment:
 //===============
 // 1. When start Pressed Check if all permissions are enabled
+// 2. Siren Sound
 
 
 // Profile Fragment:

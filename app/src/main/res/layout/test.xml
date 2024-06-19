@@ -25,11 +25,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <EditText
+            android:id="@+id/NewRegPhNo"
             android:layout_width="200dp"
             android:layout_height="47dp"
             android:gravity="center"
-            android:hint="Enter Your Name"
-            android:inputType="text"
+            android:hint="Enter Your Phone No"
+            android:inputType="number"
             android:singleLine="true"
             android:soundEffectsEnabled="true"
             android:textColor="@color/black"
@@ -57,10 +58,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <EditText
+            android:id="@+id/NewRegLoc"
             android:layout_width="200dp"
             android:layout_height="47dp"
             android:gravity="center"
-            android:hint="Enter Your Name"
+            android:hint="Enter Your Location"
             android:inputType="text"
             android:singleLine="true"
             android:soundEffectsEnabled="true"
@@ -89,10 +91,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <EditText
+            android:id="@+id/NewRegAge"
             android:layout_width="200dp"
             android:layout_height="47dp"
             android:gravity="center"
-            android:hint="Enter Your Name"
+            android:hint="Enter Your Age"
             android:inputType="text"
             android:singleLine="true"
             android:soundEffectsEnabled="true"
@@ -118,9 +121,10 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/NewRegProfilePic">
 
         <EditText
+            android:id="@+id/NewRegName"
             android:layout_width="200dp"
             android:layout_height="47dp"
             android:gravity="center"
@@ -154,10 +158,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <EditText
+            android:id="@+id/NewRegBloogGroup"
             android:layout_width="200dp"
             android:layout_height="47dp"
             android:gravity="center"
-            android:hint="Enter Your Name"
+            android:hint="Enter Your Blood Group"
             android:inputType="text"
             android:singleLine="true"
             android:soundEffectsEnabled="true"
@@ -169,6 +174,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/dialogExitBtn"
+        android:layout_marginTop="8dp"
         android:layout_width="18dp"
         android:layout_height="26dp"
         android:backgroundTint="@color/red"
@@ -180,10 +187,10 @@
         app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.004" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/NewRegProfilePic"
         android:layout_width="85dp"
         android:layout_height="85dp"
         android:layout_marginTop="28dp"
@@ -196,6 +203,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/NewRegProfilePicImgView"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
@@ -204,6 +212,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/dialogSubmitBtn"
         android:layout_width="66dp"
         android:layout_height="24dp"
         android:layout_marginTop="24dp"
