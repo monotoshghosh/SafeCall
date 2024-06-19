@@ -13,7 +13,15 @@ import androidx.core.content.ContentProviderCompat.requireContext
 
 class obj {
 
+    fun testDialogBox (context:Context) {
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.test)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
+        dialog.setCancelable(false)
+        dialog.show()
+        objSound.btnSoundDialogOpen(context as Activity)
 
+    }
 
 
     fun savedPersonInfoDialogBox (context:Context,personKey: String) {

@@ -86,6 +86,7 @@ class MainScreen : AppCompatActivity() {
 //=================
 // 1.  Layout Change
 // 2.  Remove Sound
+// 3. Info save Dialog --> empty box deny submit
 
 
 // Home Fragment:
