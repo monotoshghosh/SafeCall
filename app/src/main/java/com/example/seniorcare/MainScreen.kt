@@ -30,7 +30,7 @@ class MainScreen : AppCompatActivity() {
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
 
-        if(!isUserInfoSaved()){
+        if(!obj().isUserInfoSaved(this)){
             obj().newRegistrationDialogBox(this)
         }
 
@@ -68,14 +68,6 @@ class MainScreen : AppCompatActivity() {
         }
     }
 
-    private fun isUserInfoSaved(): Boolean {             // THIS IS CHECK IF DATA IS SAVED OR NOT
-        val sharedPreferences = getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
-        return sharedPreferences.contains("Name") &&
-                sharedPreferences.contains("Age") &&
-                sharedPreferences.contains("Blood Group") &&
-                sharedPreferences.contains("Location") &&
-                sharedPreferences.contains("Phone")
-    }
 
 
 

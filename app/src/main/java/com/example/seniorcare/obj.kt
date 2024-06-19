@@ -9,11 +9,70 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContentProviderCompat.requireContext
 
 class obj {
 
 
+
+    fun newRegistrationDialogBox (context:Context,personKey: String? = null, listener: OnProfileUpdatedListener? = null){
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.dialogboxnewregis)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
+        dialog.setCancelable(false)
+        dialog.show()
+        objSound.btnSoundDialogOpen(context as Activity)
+
+        val exitBtn = dialog.findViewById<Button>(R.id.dialogExitBtn)
+        exitBtn.setOnClickListener {
+            if(!obj().isUserInfoSaved(context)){
+                Toast.makeText(context,"Please fill the Details", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                dialog.dismiss()
+                objSound.btnSound(context as Activity)
+            }
+
+        }
+
+        val submitBtn = dialog.findViewById<CardView>(R.id.dialogSubmitBtn)
+
+
+        val nameInput = dialog.findViewById<EditText>(R.id.NewRegName)
+        val ageInput = dialog.findViewById<EditText>(R.id.NewRegAge)
+        val bloodGroupInput = dialog.findViewById<EditText>(R.id.NewRegBloogGroup)
+        val locationInput = dialog.findViewById<EditText>(R.id.NewRegLoc)
+        val phoneNoInput = dialog.findViewById<EditText>(R.id.NewRegPhNo)
+
+
+
+        submitBtn.setOnClickListener {
+            val name = nameInput.text.toString()
+            val age = ageInput.text.toString()
+            val bloodGroup = bloodGroupInput.text.toString()
+            val location = locationInput.text.toString()
+            val phoneNo = phoneNoInput.text.toString()
+
+            if(name.isNotEmpty() && age.isNotEmpty() && bloodGroup.isNotEmpty() && location.isNotEmpty() && phoneNo.isNotEmpty()) {
+                if (personKey == null) {
+                    saveUserInfo(context, name, age, bloodGroup, location, phoneNo)
+                } else {
+                    savePersonInfo(context, personKey, name, age, bloodGroup, location, phoneNo)
+                }
+
+
+                dialog.dismiss()
+                Toast.makeText(context, "Information Saved", Toast.LENGTH_SHORT).show()
+                objSound.btnSound(context)
+                listener?.onProfileUpdated() // Trigger the callback
+
+            }
+            else{
+                Toast.makeText(context, "Please fill all the Details", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+    }
 
     fun savedPersonInfoDialogBox (context:Context,personKey: String) {
         val dialog = Dialog(context)
@@ -77,59 +136,7 @@ class obj {
 
     }
 
-    fun newRegistrationDialogBox (context:Context,personKey: String? = null, listener: OnProfileUpdatedListener? = null){
-        val dialog = Dialog(context)
-        dialog.setContentView(R.layout.dialogboxnewregis)
-        dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
-        dialog.setCancelable(false)
-        dialog.show()
-        objSound.btnSoundDialogOpen(context as Activity)
 
-        val exitBtn = dialog.findViewById<Button>(R.id.dialogExitBtn)
-        exitBtn.setOnClickListener {
-            dialog.dismiss()
-            objSound.btnSound(context as Activity)
-        }
-        
-        val submitBtn = dialog.findViewById<CardView>(R.id.dialogSubmitBtn)
-
-
-        val nameInput = dialog.findViewById<EditText>(R.id.NewRegName)
-        val ageInput = dialog.findViewById<EditText>(R.id.NewRegAge)
-        val bloodGroupInput = dialog.findViewById<EditText>(R.id.NewRegBloogGroup)
-        val locationInput = dialog.findViewById<EditText>(R.id.NewRegLoc)
-        val phoneNoInput = dialog.findViewById<EditText>(R.id.NewRegPhNo)
-
-
-
-        submitBtn.setOnClickListener {
-            val name = nameInput.text.toString()
-            val age = ageInput.text.toString()
-            val bloodGroup = bloodGroupInput.text.toString()
-            val location = locationInput.text.toString()
-            val phoneNo = phoneNoInput.text.toString()
-
-            if(name.isNotEmpty() && age.isNotEmpty() && bloodGroup.isNotEmpty() && location.isNotEmpty() && phoneNo.isNotEmpty()) {
-                if (personKey == null) {
-                    saveUserInfo(context, name, age, bloodGroup, location, phoneNo)
-                } else {
-                    savePersonInfo(context, personKey, name, age, bloodGroup, location, phoneNo)
-                }
-
-
-                dialog.dismiss()
-                Toast.makeText(context, "Information Saved", Toast.LENGTH_SHORT).show()
-                objSound.btnSound(context)
-                listener?.onProfileUpdated() // Trigger the callback
-
-            }
-            else{
-                Toast.makeText(context, "Please fill all the Details", Toast.LENGTH_SHORT).show()
-            }
-            
-        }
-
-    }
     private fun saveUserInfo(context: Context, name :String, age:String, bloodGroup:String, location :String, phoneNo:String){
         val sharedPreferences = context.getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -140,6 +147,15 @@ class obj {
         editor.putString("Phone", phoneNo)
         editor.apply()
 
+    }
+
+    fun isUserInfoSaved(context: Context): Boolean {             // THIS IS CHECK IF DATA IS SAVED OR NOT
+        val sharedPreferences = context.getSharedPreferences("UserInfo", Context.MODE_PRIVATE)
+        return sharedPreferences.contains("Name") &&
+                sharedPreferences.contains("Age") &&
+                sharedPreferences.contains("Blood Group") &&
+                sharedPreferences.contains("Location") &&
+                sharedPreferences.contains("Phone")
     }
 
     private fun savePersonInfo(context: Context, personKey: String, name: String, age: String, bloodGroup: String, location: String, phoneNo: String) {
