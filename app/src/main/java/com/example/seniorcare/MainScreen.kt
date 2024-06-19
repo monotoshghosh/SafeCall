@@ -89,16 +89,16 @@ class MainScreen : AppCompatActivity() {
 
 }
 
+// App Name Change
+// App Icon Change
 
 // People Fragment:
 //=================
 // 1. Photo
-// 2.  Remove Sound
 
 
 // Home Fragment:
 //===============
-// 2. Siren Sound
 
 
 // Profile Fragment:
