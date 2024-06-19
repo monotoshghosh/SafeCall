@@ -92,17 +92,16 @@ class MainScreen : AppCompatActivity() {
 
 // People Fragment:
 //=================
-// 1.  Layout Change
+// 1. Photo
 // 2.  Remove Sound
-// 3. Info save Dialog --> empty box deny submit
 
 
 // Home Fragment:
 //===============
-// 1. When start Pressed Check if all permissions are enabled
 // 2. Siren Sound
 
 
 // Profile Fragment:
 //=================
+// 1. Photo
 
