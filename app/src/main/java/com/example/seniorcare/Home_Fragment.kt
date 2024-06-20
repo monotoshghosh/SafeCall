@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +37,18 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
 
+
         binding.btnHomeFragment.setOnClickListener {
+
+            // BUTTON BACKGROUND CHANGE
+            binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_pressed)
+
+            Handler().postDelayed({
+                binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_not_pressed)
+            },7900)
+
+
+
             val adminName = getAdminName()
             val locationService = LocationService(requireContext())
 

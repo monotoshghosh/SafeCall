@@ -41,7 +41,7 @@ object objSound {
         }
     }
     fun btnSoundError(activity: Activity){
-        val mp: MediaPlayer = MediaPlayer.create(activity,R.raw.error2)
+        val mp: MediaPlayer = MediaPlayer.create(activity,R.raw.error1)
         mp.setVolume(1f,1f)   // SETTING THE VOLUME TO 100%
         mp.start()
         mp.setOnCompletionListener{       // ON COMPLETION RELEASE TO AVOID MEMORY LEAK
