@@ -90,7 +90,6 @@ class MainScreen : AppCompatActivity() {
 }
 
 // App Name Change -- packages / all
-// App Icon Change
 
 // People Fragment:
 //=================
@@ -99,7 +98,6 @@ class MainScreen : AppCompatActivity() {
 
 // Home Fragment:
 //===============
-// push button
 
 
 // Profile Fragment:

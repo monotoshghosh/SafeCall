@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
+import android.media.Image
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -16,7 +17,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.seniorcare.databinding.HomeFragmentBinding
 import android.telephony.SmsManager
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import java.util.Locale
 
 class Home_Fragment : Fragment(R.layout.home_fragment) {
@@ -24,6 +27,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
     private val TAG = "Home_Fragment"
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,14 +41,21 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.sirenGif.alpha = 0f
+
+        // ENABLING THE GIF
+        val sirenGifImg = view.findViewById<ImageView>(R.id.sirenGif)
+        Glide.with(this).asGif().load(R.drawable.sirengif).into(sirenGifImg)
 
         binding.btnHomeFragment.setOnClickListener {
 
-            // BUTTON BACKGROUND CHANGE
+            // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
             binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_pressed)
+            binding.sirenGif.alpha =1f  // SHOW IMAGE
 
             Handler().postDelayed({
                 binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_not_pressed)
+                binding.sirenGif.alpha = 0f
             },7900)
 
 

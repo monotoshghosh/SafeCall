@@ -51,6 +51,10 @@ dependencies {
 
     implementation (libs.circleimageview)
 
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
+
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
