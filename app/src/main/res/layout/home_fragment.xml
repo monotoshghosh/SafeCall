@@ -12,6 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="97dp"
         android:src="@drawable/home"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnHomeFragment"
         app:layout_constraintHorizontal_bias="0.0"
