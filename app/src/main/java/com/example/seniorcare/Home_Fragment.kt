@@ -1,7 +1,9 @@
 package com.example.seniorcare
 
 import android.Manifest
+import android.app.Activity.RESULT_OK
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
@@ -9,6 +11,7 @@ import android.location.LocationManager
 import android.media.Image
 import android.os.Bundle
 import android.os.Handler
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +33,11 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
     private val binding get() = _binding!!
     private val TAG = "Home_Fragment"
 
+    val imgGallery = binding.testIMG
+    val btnGallery = binding.testBTN
+
+    private val GALLERY_REQUEST_CODE = 1000
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +49,12 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btnGallery.setOnClickListener {
+            val iGallery = Intent(Intent.ACTION_PICK)
+            iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(iGallery,GALLERY_REQUEST_CODE)
+        }
 
 
 
@@ -98,6 +112,18 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 }
             }
         }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode == RESULT_OK)
+            if (requestCode == GALLERY_REQUEST_CODE){
+                // FOR GALLERY
+                imgGallery.setImageURI(data?.data)
+
+            }
     }
 
     private fun getAdminName(): String {
