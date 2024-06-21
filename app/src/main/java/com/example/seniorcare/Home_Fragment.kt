@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
+import android.location.LocationManager
 import android.media.Image
 import android.os.Bundle
 import android.os.Handler
@@ -19,6 +20,7 @@ import com.example.seniorcare.databinding.HomeFragmentBinding
 import android.telephony.SmsManager
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import com.bumptech.glide.Glide
 import java.util.Locale
 
@@ -41,6 +43,8 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
 
+
+
         binding.sirenGif.alpha = 0f
 
         // ENABLING THE GIF
@@ -49,14 +53,20 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
         binding.btnHomeFragment.setOnClickListener {
 
-            // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
-            binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_pressed)
-            binding.sirenGif.alpha =1f  // SHOW IMAGE
+            val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            if (!isLocationEnabled(locationManager)) {
+                Toast.makeText(requireContext(), "Please turn ON your Location", Toast.LENGTH_LONG).show()
+            }
 
-            Handler().postDelayed({
-                binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_not_pressed)
-                binding.sirenGif.alpha = 0f
-            },7900)
+
+//            // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
+//            binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_pressed)
+//            binding.sirenGif.alpha =1f  // SHOW IMAGE
+//
+//            Handler().postDelayed({
+//                binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_not_pressed)
+//                binding.sirenGif.alpha = 0f
+//            },7900)
 
 
 
@@ -118,12 +128,26 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 Toast.makeText(requireContext(), "SMS sent to $phoneNumber", Toast.LENGTH_SHORT).show()
                 objSound.btnSoundStart(requireActivity())
                 Log.d(TAG, "SMS sent to $phoneNumber")
+                allowStartBtnAndGif()
+
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Failed to send SMS: ${e.message}", Toast.LENGTH_SHORT).show()
                 Log.e(TAG, "Failed to send SMS to $phoneNumber: ${e.message}")
             }
         }
     }
+
+    fun allowStartBtnAndGif(){
+        // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
+        binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_pressed)
+        binding.sirenGif.alpha =1f  // SHOW IMAGE
+
+        Handler().postDelayed({
+            binding.btnHomeFragment.background= ContextCompat.getDrawable(requireContext(),R.drawable.button_not_pressed)
+            binding.sirenGif.alpha = 0f
+        },7900)
+    }
+
 
     private fun getGoogleMapsLink(location: Location): String {
         return "https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}"
@@ -167,6 +191,11 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 }
             }
         }
+    }
+
+    private fun isLocationEnabled(locationManager: LocationManager): Boolean {
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
     }
 
     override fun onDestroyView() {
