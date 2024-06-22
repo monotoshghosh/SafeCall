@@ -5,13 +5,17 @@ import android.Manifest
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 
 class obj {
@@ -39,7 +43,6 @@ class obj {
 
         }
 
-        val submitBtn = dialog.findViewById<CardView>(R.id.dialogSubmitBtn)
 
 
         val nameInput = dialog.findViewById<EditText>(R.id.NewRegName)
@@ -50,6 +53,7 @@ class obj {
 
 
 
+        val submitBtn = dialog.findViewById<CardView>(R.id.dialogSubmitBtn)
         submitBtn.setOnClickListener {
             val name = nameInput.text.toString()
             val age = ageInput.text.toString()
