@@ -24,9 +24,13 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {       //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onResume()            //         super.onViewCreated(view, savedInstanceState)
 
+        refreshImages()
+    }
+
+    private fun refreshImages() {
         val cardPersons = arrayOf(
             binding.person1 to binding.person1Img,
             binding.person2 to binding.person2Img,
@@ -51,6 +55,8 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
                 val savedImageUri = getSavedImageUri(personKey)
                 if (savedImageUri != null) {
                     imageView.setImageURI(savedImageUri)
+                } else {
+                    imageView.setImageResource(R.drawable.add_image2) // default image
                 }
 
                 card.setOnClickListener {
