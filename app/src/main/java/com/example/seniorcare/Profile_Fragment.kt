@@ -1,18 +1,36 @@
 package com.example.seniorcare
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.seniorcare.databinding.ProfileFragmentBinding
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedListener {
 
     private var _binding: ProfileFragmentBinding? = null
     private val binding get() = _binding!!
+
+
+    private val TAG = "Monotosh_Profile"
+    private val GALLERY_REQUEST_CODE = 1000
     
 
     override fun onCreateView(
@@ -26,6 +44,22 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val adminPhoto = binding.adminProfilePic
+        val btnPhotoChange = binding.adminPhotoChangeBtn
+
+        // Load the saved image URI from shared preferences
+        val savedImageUri = getSavedImageUri()
+        if (savedImageUri != null) {
+            adminPhoto.setImageURI(savedImageUri)
+        }
+
+        btnPhotoChange.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, GALLERY_REQUEST_CODE)
+        }
 
         loadProfileData()
 
@@ -60,6 +94,65 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
 
     override fun onProfileUpdated() {
         loadProfileData()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val adminPhoto = binding.adminProfilePic
+
+        if (resultCode == Activity.RESULT_OK && requestCode == GALLERY_REQUEST_CODE) {
+            val imageUri = data?.data
+            if (imageUri != null) {
+                try {
+                    // Save the image locally
+                    val savedImageUri = saveImageToLocalDirectory(imageUri)
+                    if (savedImageUri != null) {
+                        // Update ImageView with the saved image URI
+                        adminPhoto.setImageURI(savedImageUri)
+                        // Save the image URI to shared preferences
+                        saveImageUriToPreferences(savedImageUri)
+                    } else {
+                        Log.e(TAG, "Failed to save image locally.")
+                    }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Error processing selected image: ${e.message}")
+                }
+            } else {
+                Log.e(TAG, "Image URI is null.")
+            }
+        } else {
+            Log.e(TAG, "Result code not OK or request code mismatch.")
+        }
+    }
+
+    private fun saveImageToLocalDirectory(imageUri: Uri): Uri? {
+        return try {
+            val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, imageUri)
+            val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+            val storageDir = requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+            val imageFile = File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir)
+            val outputStream = FileOutputStream(imageFile)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+            outputStream.close()
+            FileProvider.getUriForFile(requireContext(), "com.example.seniorcare.fileprovider", imageFile)
+        } catch (e: IOException) {
+            Log.e(TAG, "Failed to save image: ${e.message}")
+            Toast.makeText(requireContext(), "Failed to save image", Toast.LENGTH_SHORT).show()
+            null
+        }
+    }
+
+    private fun saveImageUriToPreferences(imageUri: Uri) {
+        val sharedPreferences = requireContext().getSharedPreferences("UserInfoPhoto", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("Admin_Photo", imageUri.toString())
+        editor.apply()
+    }
+
+    private fun getSavedImageUri(): Uri? {
+        val sharedPreferences = requireContext().getSharedPreferences("UserInfoPhoto", Context.MODE_PRIVATE)
+        val savedImageUriString = sharedPreferences.getString("Admin_Photo", null)
+        return if (savedImageUriString != null) Uri.parse(savedImageUriString) else null
     }
 
 
