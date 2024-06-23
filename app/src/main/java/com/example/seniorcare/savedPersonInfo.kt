@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.seniorcare.databinding.ActivitySavedPersonInfoBinding
 import java.io.File
@@ -32,6 +34,11 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         super.onCreate(savedInstanceState)
         binding = ActivitySavedPersonInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        window.apply {
+            statusBarColor = ContextCompat.getColor(this@savedPersonInfo,android.R.color.white)
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
 
         personKey = intent.getStringExtra("Person_unique_key")
 

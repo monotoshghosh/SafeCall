@@ -62,12 +62,15 @@
         app:layout_constraintTop_toBottomOf="@+id/person3"
         app:layout_constraintVertical_bias="0.097">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person5Img"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2" />
+            android:src="@drawable/add_image2"
+            app:civ_border_color="#FF000000"
+            android:scaleType="centerCrop"
+            app:civ_border_width="0.1dp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -83,12 +86,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/person1">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person3Img"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2" />
+            android:src="@drawable/add_image2"
+            app:civ_border_color="#FF000000"
+            android:scaleType="centerCrop"
+            app:civ_border_width="0.1dp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -106,12 +112,15 @@
         app:layout_constraintTop_toTopOf="@+id/person3"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person4Img"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2" />
+            android:src="@drawable/add_image2"
+            app:civ_border_color="#FF000000"
+            android:scaleType="centerCrop"
+            app:civ_border_width="0.1dp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -128,12 +137,15 @@
         app:layout_constraintTop_toTopOf="@+id/person5"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person6Img"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2" />
+            android:src="@drawable/add_image2"
+            app:civ_border_color="#FF000000"
+            android:scaleType="centerCrop"
+            app:civ_border_width="0.1dp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -151,12 +163,22 @@
         app:layout_constraintTop_toTopOf="@+id/person1"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
+<!--        <ImageView-->
+<!--            android:id="@+id/person2Img"-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:src="@drawable/add_image2" />-->
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person2Img"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2" />
+            android:src="@drawable/add_image2"
+            app:civ_border_color="#FF000000"
+            android:scaleType="centerCrop"
+            app:civ_border_width="0.1dp" />
     </androidx.cardview.widget.CardView>
 
 

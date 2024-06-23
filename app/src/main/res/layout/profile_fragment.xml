@@ -9,13 +9,39 @@
 
 
 
-    <ImageView
-        android:id="@+id/adminProfilePic"
-        android:layout_width="133dp"
-        android:layout_height="129dp"
-        app:srcCompat="@drawable/profilepic1"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="71dp"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/adminProfilePic"-->
+<!--        android:layout_width="133dp"-->
+<!--        android:layout_height="129dp"-->
+<!--        app:srcCompat="@drawable/profilepic1"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="71dp"/>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/adminProfilePic"
+            android:layout_width="133dp"
+            android:layout_height="129dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profilepic1"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0.1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.985" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
         <!--  WHEN EDIT WAS THERE  -->
         <!--   IMAGE VIEW TOP WAS 55dp  -->
