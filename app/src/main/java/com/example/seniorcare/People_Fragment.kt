@@ -56,7 +56,7 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
                 if (savedImageUri != null) {
                     imageView.setImageURI(savedImageUri)
                 } else {
-//                    imageView.setImageResource(R.drawable.addphoto3) // default image
+                    imageView.setImageResource(R.drawable.addphoto3) // default image
                 }
 
                 card.setOnClickListener {

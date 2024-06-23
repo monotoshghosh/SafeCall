@@ -88,6 +88,10 @@ class MainScreen : AppCompatActivity() {
 
 }
 
+// dialog box - age reg type - number
+
+
+
 // App Name Change -- packages / all
 
 // People Fragment:

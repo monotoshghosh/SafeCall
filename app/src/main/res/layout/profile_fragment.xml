@@ -21,21 +21,26 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:backgroundTint="@color/green"-->
-<!--            app:cardCornerRadius="17dp"-->
-<!--            tools:layout_editor_absoluteX="360dp"-->
-<!--            tools:layout_editor_absoluteY="149dp" />-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="92dp"
+            android:backgroundTint="#A9E2EC"
+            app:cardCornerRadius="17dp"
 
-<!--        <Button-->
-<!--            android:layout_width="35dp"-->
-<!--            android:layout_height="35dp"-->
-<!--            android:background="@drawable/pencil2"-->
-<!--            app:backgroundTint="@null"-->
-<!--            tools:layout_editor_absoluteX="325dp"-->
-<!--            tools:layout_editor_absoluteY="55dp" />-->
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="@+id/adminProfilePic"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/adminProfilePic"
+            app:layout_constraintTop_toTopOf="@+id/adminProfilePic">
+
+            <ImageView
+                android:id="@+id/adminPhotoChangeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pencil2"
+                android:padding="5dp" />
+        </androidx.cardview.widget.CardView>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/adminProfilePic"
@@ -52,18 +57,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.774" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/adminPhotoChangeBtn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="116dp"
-            android:clickable="true"
-            android:foregroundGravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.857"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/googleg_standard_color_18" />
+        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/adminPhotoChangeBtn"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginTop="116dp"-->
+<!--            android:clickable="true"-->
+<!--            android:foregroundGravity="center"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.857"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:srcCompat="@drawable/googleg_standard_color_18" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -82,7 +87,7 @@
         android:backgroundTint="#F3F3F4"
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="55dp"
         android:layout_gravity="center_horizontal">
 
         <TextView

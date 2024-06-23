@@ -41,7 +41,6 @@
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:src="@drawable/addphoto3"
-
             android:scaleType="centerCrop" />
 
     </androidx.cardview.widget.CardView>
@@ -66,10 +65,9 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2"
-            app:civ_border_color="#FF000000"
+            android:src="@drawable/addphoto3"
             android:scaleType="centerCrop"
-            app:civ_border_width="0.1dp" />
+           />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -90,10 +88,9 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2"
-            app:civ_border_color="#FF000000"
+            android:src="@drawable/addphoto3"
             android:scaleType="centerCrop"
-            app:civ_border_width="0.1dp" />
+             />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -116,10 +113,9 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2"
-            app:civ_border_color="#FF000000"
+            android:src="@drawable/addphoto3"
             android:scaleType="centerCrop"
-            app:civ_border_width="0.1dp" />
+             />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -141,10 +137,9 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2"
-            app:civ_border_color="#FF000000"
+            android:src="@drawable/addphoto3"
             android:scaleType="centerCrop"
-            app:civ_border_width="0.1dp" />
+            />
 
     </androidx.cardview.widget.CardView>
 
@@ -174,10 +169,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/add_image2"
-            app:civ_border_color="#FF000000"
-            android:scaleType="centerCrop"
-            app:civ_border_width="0.1dp" />
+            android:src="@drawable/addphoto3"
+            />
     </androidx.cardview.widget.CardView>
 
 
