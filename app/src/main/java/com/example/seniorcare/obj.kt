@@ -1,22 +1,14 @@
 package com.example.seniorcare
 
 
-import android.Manifest
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat
 
 class obj {
 
@@ -110,25 +102,25 @@ class obj {
         val location = sharedPreferences.getString("${personKey}_Location","NULL")
         val phone = sharedPreferences.getString("${personKey}_Phone","NULL")
 
-        val nameTextView = dialog.findViewById<TextView>(R.id.nameSavedPersonInfoDilogBox)
+        val nameTextView = dialog.findViewById<TextView>(R.id.nameSavedPersonInfo)
         nameTextView.text = name
 
-        val ageTextView = dialog.findViewById<TextView>(R.id.ageSavedPersonInfoDilogBox)
+        val ageTextView = dialog.findViewById<TextView>(R.id.ageSavedPersonInfo)
         ageTextView.text = age
 
-        val bloodGroupTextView = dialog.findViewById<TextView>(R.id.bloodgroupSavedPersonInfoDilogBox)
+        val bloodGroupTextView = dialog.findViewById<TextView>(R.id.bloodgroupSavedPersonInfo)
         bloodGroupTextView.text = bloodGroup
 
-        val locationTextView = dialog.findViewById<TextView>(R.id.locationSavedPersonInfoDilogBox)
+        val locationTextView = dialog.findViewById<TextView>(R.id.locationSavedPersonInfo)
         locationTextView.text = location
 
-        val phoneTextView = dialog.findViewById<TextView>(R.id.phoneNoSavedPersonInfoDilogBox)
+        val phoneTextView = dialog.findViewById<TextView>(R.id.phoneNoSavedPersonInfo)
         phoneTextView.text = phone
 
 
 
 
-        val removeBtn = dialog.findViewById<CardView>(R.id.removeSavedPersonInfoDilogBox)
+        val removeBtn = dialog.findViewById<CardView>(R.id.removeSavedPersonInfo)
         removeBtn.setOnClickListener {
             obj().deleteSavePersonInfo(context,personKey)
             dialog.dismiss()
@@ -137,7 +129,7 @@ class obj {
         }
 
 
-        val editBtn = dialog.findViewById<CardView>(R.id.editSavedPersonInfoDilogBox)
+        val editBtn = dialog.findViewById<CardView>(R.id.editSavedPersonInfo)
         editBtn.setOnClickListener {
             dialog.dismiss()
             obj().newRegistrationDialogBox(context,personKey)

@@ -1,6 +1,7 @@
 package com.example.seniorcare
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,8 +47,11 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
                 }
                 else{
                     Toast.makeText(requireContext(), "Person Already Saved !!", Toast.LENGTH_SHORT).show()
-                    obj().savedPersonInfoDialogBox(requireContext(),personKey)
-
+//                    obj().savedPersonInfoDialogBox(requireContext(),personKey)
+                    val intent = Intent(requireContext(),savedPersonInfo::class.java)
+                    val key= this
+                    intent.putExtra("Person_unique_key",personKey)
+                    startActivity(intent)
 
 
                 }
