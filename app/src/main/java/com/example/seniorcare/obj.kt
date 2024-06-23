@@ -172,7 +172,7 @@ class obj {
         editor.apply()
     }
 
-    private fun deleteSavePersonInfo(context: Context,personKey: String){
+    fun deleteSavePersonInfo(context: Context,personKey: String){
         val sharedPreferences = context.getSharedPreferences("PeopleInfo", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.remove("${personKey}_Name")

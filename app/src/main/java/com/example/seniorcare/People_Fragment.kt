@@ -28,6 +28,8 @@ class People_Fragment:Fragment(R.layout.people_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        binding.person1Img.setImageURI(savedPersonInfo().getSavedImageUri())
+
         var cardPersons = arrayOf<CardView>(binding.person1,binding.person2,binding.person3,binding.person4,binding.person5,binding.person6)
 
         for (i in cardPersons) {
