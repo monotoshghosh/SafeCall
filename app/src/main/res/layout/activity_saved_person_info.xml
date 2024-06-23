@@ -10,19 +10,19 @@
 
     <Button
         android:id="@+id/exitBtnSavedPersonInfo"
-        android:layout_marginTop="10dp"
         android:layout_width="22dp"
         android:layout_height="30dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/red"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="x"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.008" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/photoCardViewSavedPersonInfo"
@@ -31,7 +31,7 @@
         android:backgroundTint="#958F8F"
 
         app:cardCornerRadius="69dp"
-        app:cardElevation="5dp"
+        app:cardElevation="9dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -171,10 +171,10 @@
         android:id="@+id/changePicBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="180dp"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home" />

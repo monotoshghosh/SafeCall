@@ -44,6 +44,10 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
 
         loadPersonInfo()
 
+        binding.exitBtnSavedPersonInfo.setOnClickListener {
+            finish()
+        }
+
         binding.changePicBtn.setOnClickListener {
             val iGallery = Intent(Intent.ACTION_PICK)
             iGallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -98,7 +102,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         if (savedImageUri != null) {
             binding.photoSavedPersonInfo.setImageURI(savedImageUri)
         } else {
-            binding.photoSavedPersonInfo.setImageResource(R.drawable.add_image2)
+            binding.photoSavedPersonInfo.setImageResource(R.drawable.profilepic1)
         }
 
         val sharedPreferences = this.getSharedPreferences("PeopleInfo", Context.MODE_PRIVATE)

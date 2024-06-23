@@ -14,19 +14,19 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.provider.MediaStore
+import android.telephony.SmsManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import com.example.seniorcare.databinding.HomeFragmentBinding
-import android.telephony.SmsManager
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.seniorcare.databinding.HomeFragmentBinding
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -53,7 +53,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val imgGallery = binding.testIMG
-        val btnGallery = binding.testBTN
+        val btnGallery = binding.testIMG
 
         // Load the saved image URI from shared preferences
         val savedImageUri = getSavedImageUri()

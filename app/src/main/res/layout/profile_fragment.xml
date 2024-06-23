@@ -21,6 +21,22 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:backgroundTint="@color/green"-->
+<!--            app:cardCornerRadius="17dp"-->
+<!--            tools:layout_editor_absoluteX="360dp"-->
+<!--            tools:layout_editor_absoluteY="149dp" />-->
+
+<!--        <Button-->
+<!--            android:layout_width="35dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:background="@drawable/pencil2"-->
+<!--            app:backgroundTint="@null"-->
+<!--            tools:layout_editor_absoluteX="325dp"-->
+<!--            tools:layout_editor_absoluteY="55dp" />-->
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/adminProfilePic"
             android:layout_width="133dp"
@@ -34,7 +50,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.985" />
+            app:layout_constraintVertical_bias="0.774" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/adminPhotoChangeBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="116dp"
+            android:clickable="true"
+            android:foregroundGravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.857"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/googleg_standard_color_18" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -177,13 +206,6 @@
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/adminPhotoChangeBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
 
 
 </LinearLayout>
