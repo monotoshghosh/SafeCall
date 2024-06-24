@@ -48,7 +48,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
             finish()
         }
 
-        binding.changePicBtn.setOnClickListener {
+        binding.adminPhotoChangeBtn.setOnClickListener {
             val iGallery = Intent(Intent.ACTION_PICK)
             iGallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             startActivityForResult(iGallery, GALLERY_REQUEST_CODE)

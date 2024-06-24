@@ -7,6 +7,27 @@
     android:layout_gravity="center_horizontal"
     android:background="#FFFFFF">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:layout_marginTop="104dp"
+        android:backgroundTint="#A9E2EC"
+        app:cardCornerRadius="17dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="@+id/photoSavedPersonInfo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/photoSavedPersonInfo"
+        app:layout_constraintTop_toTopOf="@+id/photoSavedPersonInfo">
+
+        <ImageView
+            android:id="@+id/adminPhotoChangeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pencil2"
+            android:padding="5dp" />
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/exitBtnSavedPersonInfo"
@@ -24,44 +45,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.008" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/photoCardViewSavedPersonInfo"
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/photoSavedPersonInfo"
         android:layout_width="139dp"
         android:layout_height="139dp"
-        android:backgroundTint="#958F8F"
-
-        app:cardCornerRadius="69dp"
-        app:cardElevation="9dp"
+        android:layout_gravity="center"
+        android:src="@drawable/profilepic1"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="0.1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/photoSavedPersonInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/profilepic1"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="0.1dp"
-            android:layout_gravity="center"/>
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintVertical_bias="0.114" />
 
     <TextView
         android:id="@+id/nameSavedPersonInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:text="Name"
         android:textColor="#656464"
         android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoCardViewSavedPersonInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/photoSavedPersonInfo" />
 
     <TextView
         android:id="@+id/phoneNoSavedPersonInfo"
@@ -169,14 +179,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/changePicBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
+        android:layout_width="55dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="136dp"
         android:clickable="true"
 
         app:backgroundTint="#BABCBA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pencil2" />
