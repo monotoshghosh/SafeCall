@@ -27,7 +27,6 @@
             android:layout_marginTop="92dp"
             android:backgroundTint="#F8D6F6"
             app:cardCornerRadius="17dp"
-
             app:cardElevation="6dp"
             app:layout_constraintEnd_toEndOf="@+id/adminProfilePic"
             app:layout_constraintHorizontal_bias="1.0"
@@ -38,8 +37,8 @@
                 android:id="@+id/adminPhotoChangeBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/pencil2"
-                android:padding="5dp" />
+                android:src="@drawable/pencil"
+                android:padding="8dp" />
         </androidx.cardview.widget.CardView>
 
         <de.hdodenhof.circleimageview.CircleImageView

@@ -24,8 +24,8 @@
             android:id="@+id/adminPhotoChangeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/pencil2"
-            android:padding="5dp" />
+            android:src="@drawable/pencil"
+            android:padding="8dp" />
 
     </androidx.cardview.widget.CardView>
 
