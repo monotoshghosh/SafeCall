@@ -12,7 +12,7 @@
         android:layout_height="35dp"
 
         android:layout_marginTop="104dp"
-        android:backgroundTint="#A9E2EC"
+        android:backgroundTint="#F8D6F6"
         app:cardCornerRadius="17dp"
         app:cardElevation="6dp"
         app:layout_constraintEnd_toEndOf="@+id/photoSavedPersonInfo"
@@ -176,20 +176,6 @@
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/changePicBtn"
-        android:layout_width="55dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="136dp"
-        android:clickable="true"
-
-        app:backgroundTint="#BABCBA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pencil2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
