@@ -88,22 +88,3 @@ class MainScreen : AppCompatActivity() {
 
 }
 
-// dialog box - age reg type - number
-
-
-
-// App Name Change -- packages / all
-
-// People Fragment:
-//=================
-// 1. Photo
-
-
-// Home Fragment:
-//===============
-
-
-// Profile Fragment:
-//=================
-// 1. Photo
-
