@@ -20,6 +20,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.seniorcare.databinding.HomeFragmentBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import java.util.Locale
 
 class Home_Fragment : Fragment(R.layout.home_fragment) {
@@ -39,6 +41,10 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        MobileAds.initialize(requireContext()) {}
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView1.loadAd(adRequest)
 
 
         binding.sirenGif.alpha = 0f
