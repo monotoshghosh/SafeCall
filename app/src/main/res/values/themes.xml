@@ -8,6 +8,16 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
+
+        <item name="colorPrimaryDark">#0664CA</item>
+        <item name="android:colorPrimaryDark">#0664CA</item>
+
+        <item name="android:colorPrimary">#58A5F8</item>
+        <item name="android:colorAccent">#5095DF</item>
+
+        <!--    THIS IS FOR CURSOR & TEXT SELECTOR COLOR    -->
+        <item name="colorPrimary">#0664CA</item>
+        <item name="colorAccent">#5095DF</item>
     </style>
 
     <style name="Theme.SeniorCare" parent="Base.Theme.SeniorCare" />
