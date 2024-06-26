@@ -8,19 +8,6 @@
 
 
     <ImageView
-        android:id="@+id/testIMG"
-        android:layout_width="100dp"
-        android:layout_height="97dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/whitepic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.235" />
-
-    <ImageView
         android:id="@+id/sirenGif"
         android:layout_width="130dp"
         android:layout_height="130dp"
