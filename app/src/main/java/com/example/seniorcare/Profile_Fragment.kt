@@ -16,6 +16,13 @@ import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.seniorcare.databinding.ProfileFragmentBinding
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -31,7 +38,10 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
 
     private val TAG = "Monotosh_Profile"
     private val GALLERY_REQUEST_CODE = 1000
-    
+
+    private var mInterstitialAd: InterstitialAd? = null
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +55,10 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        MobileAds.initialize(requireContext()) {}
+        loadinterstitialAd()
+
+
 
         val adminPhoto = binding.adminProfilePic
         val btnPhotoChange = binding.adminPhotoChangeBtn
@@ -56,9 +70,30 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
         }
 
         btnPhotoChange.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, GALLERY_REQUEST_CODE)
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                    override fun onAdDismissedFullScreenContent() {
+                        // Ad was dismissed, launch the image picker
+                        launchImagePicker()
+                        loadinterstitialAd() // Load a new ad after showing the current one
+                    }
+
+                    override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                        // If the ad fails to show, also launch the image picker
+                        launchImagePicker()
+                        loadinterstitialAd() // Load a new ad after the failure
+                    }
+
+                    override fun onAdShowedFullScreenContent() {
+                        // Called when ad is shown
+                        mInterstitialAd = null // Set the ad reference to null to load a new ad
+                    }
+                }
+                mInterstitialAd?.show(requireActivity())
+            } else {
+                launchImagePicker()
+                loadinterstitialAd() // Load a new ad in case there is no ad loaded
+            }
         }
 
         loadProfileData()
@@ -71,6 +106,23 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
         }
 
 
+    }
+    fun loadinterstitialAd(){
+        var adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(requireContext(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+            }
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
+    }
+
+    private fun launchImagePicker() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        startActivityForResult(intent, GALLERY_REQUEST_CODE)
     }
 
     private fun loadProfileData(){

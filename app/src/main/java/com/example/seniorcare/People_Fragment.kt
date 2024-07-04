@@ -10,11 +10,21 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.seniorcare.databinding.PeopleFragmentBinding
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 class People_Fragment : Fragment(R.layout.people_fragment) {
 
     private var _binding: PeopleFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private var mInterstitialAd: InterstitialAd? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +36,9 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
 
     override fun onResume() {       //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onResume()            //         super.onViewCreated(view, savedInstanceState)
+
+        MobileAds.initialize(requireContext()) {}
+        loadinterstitialAd()
 
         refreshImages()
     }
@@ -59,19 +72,69 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
                     imageView.setImageResource(R.drawable.addphoto3) // default image
                 }
 
+                fun ifCardPersonSaved(){
+                    Toast.makeText(requireContext(), "Person Already Saved !!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(requireContext(), savedPersonInfo::class.java)
+                    intent.putExtra("Person_unique_key", personKey)
+                    startActivity(intent)
+                }
+
                 card.setOnClickListener {
                     if (!isPersonInfoSaved(personKey, it.context)) {
                         obj().newRegistrationDialogBox(it.context, personKey)
                     } else {
-                        Toast.makeText(requireContext(), "Person Already Saved !!", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(requireContext(), savedPersonInfo::class.java)
-                        intent.putExtra("Person_unique_key", personKey)
-                        startActivity(intent)
+                        if (mInterstitialAd != null) {
+                            mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                                override fun onAdDismissedFullScreenContent() {
+                                    // Ad was dismissed, launch the image picker
+                                    ifCardPersonSaved()
+                                    loadinterstitialAd() // Load a new ad after showing the current one
+                                }
+
+                                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                                    // If the ad fails to show, also launch the image picker
+                                    ifCardPersonSaved()
+                                    loadinterstitialAd() // Load a new ad after the failure
+                                }
+
+                                override fun onAdShowedFullScreenContent() {
+                                    // Called when ad is shown
+                                    mInterstitialAd = null // Set the ad reference to null to load a new ad
+                                }
+                            }
+                            mInterstitialAd?.show(requireActivity())
+                        } else {
+                            ifCardPersonSaved()
+                            loadinterstitialAd() // Load a new ad in case there is no ad loaded
+                        }
+
+
+//                        Toast.makeText(requireContext(), "Person Already Saved !!", Toast.LENGTH_SHORT).show()
+//                        val intent = Intent(requireContext(), savedPersonInfo::class.java)
+//                        intent.putExtra("Person_unique_key", personKey)
+//                        startActivity(intent)
                     }
                 }
             }
+
+
+
         }
     }
+
+
+    fun loadinterstitialAd(){
+        var adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(requireContext(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+            }
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
+    }
+
 
     private fun getSavedImageUri(personKey: String): Uri? {
         val sharedPreferences = requireContext().getSharedPreferences("PeopleInfoPhoto", Context.MODE_PRIVATE)

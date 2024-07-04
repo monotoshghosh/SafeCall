@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/9214589741"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHomeFragment"
+        app:layout_constraintVertical_bias="1.0">
+
+    </com.google.android.gms.ads.AdView>
 
     <ImageView
         android:id="@+id/sirenGif"

@@ -14,6 +14,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.seniorcare.databinding.ActivitySavedPersonInfoBinding
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -29,6 +36,9 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
     private val TAG = "Monotosh_People_Activity"
 
     private var personKey: String? = null
+
+    private var mInterstitialAd: InterstitialAd? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +58,36 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
             finish()
         }
 
+        MobileAds.initialize(this) {}
+        loadinterstitialAd()
+
         binding.adminPhotoChangeBtn.setOnClickListener {
-            val iGallery = Intent(Intent.ACTION_PICK)
-            iGallery.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            startActivityForResult(iGallery, GALLERY_REQUEST_CODE)
+
+            if (mInterstitialAd != null) {
+                mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                    override fun onAdDismissedFullScreenContent() {
+                        // Ad was dismissed, launch the image picker
+                        launchImagePicker()
+                        loadinterstitialAd() // Load a new ad after showing the current one
+                    }
+
+                    override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                        // If the ad fails to show, also launch the image picker
+                        launchImagePicker()
+                        loadinterstitialAd() // Load a new ad after the failure
+                    }
+
+                    override fun onAdShowedFullScreenContent() {
+                        // Called when ad is shown
+                        mInterstitialAd = null // Set the ad reference to null to load a new ad
+                    }
+                }
+                mInterstitialAd?.show(this)
+            } else {
+                launchImagePicker()
+                loadinterstitialAd() // Load a new ad in case there is no ad loaded
+            }
+
         }
 
         binding.removeSavedPersonInfo.setOnClickListener {
@@ -67,6 +103,25 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         binding.editSavedPersonInfo.setOnClickListener {
             obj().newRegistrationDialogBox(this, personKey, this)
         }
+    }
+
+
+    private fun launchImagePicker() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        startActivityForResult(intent, GALLERY_REQUEST_CODE)
+    }
+
+    fun loadinterstitialAd(){
+        var adRequest = AdRequest.Builder().build()
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialAd = null
+            }
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialAd = interstitialAd
+            }
+        })
     }
 
     override fun onProfileUpdated() {
