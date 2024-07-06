@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.seniorcare"
+    namespace = "com.monotoshghosh.safecall"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.seniorcare"
+        applicationId = "com.monotoshghosh.safecall"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

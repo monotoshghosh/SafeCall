@@ -1,11 +1,11 @@
-package com.example.seniorcare
+package com.monotoshghosh.safecall
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.seniorcare.databinding.ActivityMainScreenBinding
+import com.monotoshghosh.safecall.databinding.ActivityMainScreenBinding
 
 class MainScreen : AppCompatActivity() {
     private lateinit var binding: ActivityMainScreenBinding
@@ -58,7 +58,7 @@ class MainScreen : AppCompatActivity() {
         }
 
         if(savedInstanceState == null){
-            binding.bnView.selectedItemId =R.id.itemHomeId
+            binding.bnView.selectedItemId = R.id.itemHomeId
         }
 
 

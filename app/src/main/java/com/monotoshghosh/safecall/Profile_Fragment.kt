@@ -1,4 +1,4 @@
-package com.example.seniorcare
+package com.monotoshghosh.safecall
 
 import android.app.Activity
 import android.content.Context
@@ -15,7 +15,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import com.example.seniorcare.databinding.ProfileFragmentBinding
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -23,6 +22,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.monotoshghosh.safecall.databinding.ProfileFragmentBinding
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException

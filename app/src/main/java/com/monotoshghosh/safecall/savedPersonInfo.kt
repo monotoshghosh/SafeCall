@@ -1,4 +1,4 @@
-package com.example.seniorcare
+package com.monotoshghosh.safecall
 
 import android.content.Context
 import android.content.Intent
@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.seniorcare.databinding.ActivitySavedPersonInfoBinding
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -21,6 +20,7 @@ import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.monotoshghosh.safecall.databinding.ActivitySavedPersonInfoBinding
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException

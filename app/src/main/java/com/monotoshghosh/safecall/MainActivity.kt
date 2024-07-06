@@ -1,4 +1,4 @@
-package com.example.seniorcare
+package com.monotoshghosh.safecall
 
 import android.content.Context
 import android.content.Intent
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         Handler().postDelayed({
-            intent = Intent(this,MainScreen::class.java)
+            intent = Intent(this, MainScreen::class.java)
             startActivity(intent)
             finish()
         },2000)

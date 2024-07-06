@@ -1,4 +1,4 @@
-package com.example.seniorcare
+package com.monotoshghosh.safecall
 
 import android.Manifest
 import android.app.Activity
@@ -18,7 +18,8 @@ object permissionAsk {
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(context as Activity,
                 arrayOf(Manifest.permission.SEND_SMS),
-                SMS_PERMISSION_CODE)
+                SMS_PERMISSION_CODE
+            )
         }
     }
 
@@ -28,7 +29,8 @@ object permissionAsk {
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(context as Activity,
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                LOCATION_PERMISSION_CODE)
+                LOCATION_PERMISSION_CODE
+            )
         }
     }
 

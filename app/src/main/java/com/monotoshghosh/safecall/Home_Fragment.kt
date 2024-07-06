@@ -1,4 +1,4 @@
-package com.example.seniorcare
+package com.monotoshghosh.safecall
 
 import android.Manifest
 import android.content.Context
@@ -19,9 +19,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.seniorcare.databinding.HomeFragmentBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.monotoshghosh.safecall.databinding.HomeFragmentBinding
 import java.util.Locale
 
 class Home_Fragment : Fragment(R.layout.home_fragment) {
@@ -130,11 +130,15 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
     fun allowStartBtnAndGif() {
         // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
-        binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_pressed)
+        binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(),
+            R.drawable.button_pressed
+        )
         binding.sirenGif.alpha = 1f  // SHOW IMAGE
 
         Handler().postDelayed({
-            binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(), R.drawable.button_not_pressed)
+            binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(),
+                R.drawable.button_not_pressed
+            )
             binding.sirenGif.alpha = 0f
         }, 7900)
     }

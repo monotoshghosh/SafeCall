@@ -18,6 +18,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -29,13 +31,13 @@
         android:theme="@style/Theme.SeniorCare"
         tools:targetApi="31">
         <activity
-            android:name=".savedPersonInfo"
+            android:name="com.monotoshghosh.safecall.savedPersonInfo"
             android:exported="false" />
         <activity
-            android:name=".MainScreen"
+            android:name="com.monotoshghosh.safecall.MainScreen"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.monotoshghosh.safecall.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
