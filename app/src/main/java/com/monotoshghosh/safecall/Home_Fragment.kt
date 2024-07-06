@@ -44,7 +44,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         MobileAds.initialize(requireContext()) {}
 
         val adRequest = AdRequest.Builder().build()
-//        binding.adView1.loadAd(adRequest)
+        binding.adView1.loadAd(adRequest)
 
 
         binding.sirenGif.alpha = 0f
