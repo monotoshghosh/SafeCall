@@ -125,7 +125,7 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
 
     fun loadinterstitialAd(){
         var adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireContext(),"ca-app-pub-8334546624219108/4335705255", adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialAd = null
             }

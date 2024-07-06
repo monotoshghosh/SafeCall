@@ -109,7 +109,7 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
     }
     fun loadinterstitialAd(){
         var adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireContext(),"ca-app-pub-8334546624219108/3448546296", adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialAd = null
             }
