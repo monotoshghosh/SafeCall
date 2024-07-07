@@ -183,7 +183,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
             val outputStream = FileOutputStream(imageFile)
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
             outputStream.close()
-            FileProvider.getUriForFile(this, "com.example.seniorcare.fileprovider", imageFile)
+            FileProvider.getUriForFile(this, "com.monotoshghosh.safecall.fileprovider", imageFile)
         } catch (e: IOException) {
             Log.e(TAG, "Failed to save image: ${e.message}")
             Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show()

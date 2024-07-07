@@ -186,7 +186,7 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
             val outputStream = FileOutputStream(imageFile)
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
             outputStream.close()
-            FileProvider.getUriForFile(requireContext(), "com.example.seniorcare.fileprovider", imageFile)
+            FileProvider.getUriForFile(requireContext(), "com.monotoshghosh.safecall.fileprovider", imageFile)
         } catch (e: IOException) {
             Log.e(TAG, "Failed to save image: ${e.message}")
             Toast.makeText(requireContext(), "Failed to save image", Toast.LENGTH_SHORT).show()
