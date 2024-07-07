@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
@@ -17,18 +18,12 @@ class MainActivity : AppCompatActivity() {
 //        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        if(isDarkMode(this)){
-            window.apply {
-                statusBarColor = ContextCompat.getColor(this@MainActivity,android.R.color.white)
-                decorView.systemUiVisibility = 0
-            }
+
+        window.apply {
+            statusBarColor = ContextCompat.getColor(this@MainActivity,android.R.color.white)
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
-        else{
-            window.apply {
-                statusBarColor =ContextCompat.getColor(this@MainActivity,android.R.color.white)
-                decorView.systemUiVisibility = 0
-            }
-        }
+
 
         hideNavigationBar()
 

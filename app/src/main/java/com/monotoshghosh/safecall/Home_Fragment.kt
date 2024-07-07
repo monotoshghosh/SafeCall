@@ -56,6 +56,8 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         binding.btnHomeFragment.setOnClickListener {
             val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
             if (!isLocationEnabled(locationManager)) {
+                objSound.btnSoundError(requireActivity())
+                objVibration.vibrate(requireContext())
                 Toast.makeText(requireContext(), "Please turn ON your Location", Toast.LENGTH_LONG).show()
             }
 
