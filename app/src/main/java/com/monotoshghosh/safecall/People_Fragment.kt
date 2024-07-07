@@ -38,7 +38,7 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
         super.onResume()            //         super.onViewCreated(view, savedInstanceState)
 
         MobileAds.initialize(requireContext()) {}
-        loadinterstitialAd()
+//        loadinterstitialAd()
 
         refreshImages()
     }
@@ -88,13 +88,13 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
                                 override fun onAdDismissedFullScreenContent() {
                                     // Ad was dismissed, launch the image picker
                                     ifCardPersonSaved()
-                                    loadinterstitialAd() // Load a new ad after showing the current one
+//                                    loadinterstitialAd() // Load a new ad after showing the current one
                                 }
 
                                 override fun onAdFailedToShowFullScreenContent(adError: AdError) {
                                     // If the ad fails to show, also launch the image picker
                                     ifCardPersonSaved()
-                                    loadinterstitialAd() // Load a new ad after the failure
+//                                    loadinterstitialAd() // Load a new ad after the failure
                                 }
 
                                 override fun onAdShowedFullScreenContent() {
@@ -105,7 +105,7 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
                             mInterstitialAd?.show(requireActivity())
                         } else {
                             ifCardPersonSaved()
-                            loadinterstitialAd() // Load a new ad in case there is no ad loaded
+//                            loadinterstitialAd() // Load a new ad in case there is no ad loaded
                         }
 
 

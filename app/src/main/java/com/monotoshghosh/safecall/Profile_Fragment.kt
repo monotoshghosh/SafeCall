@@ -56,7 +56,7 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
         super.onViewCreated(view, savedInstanceState)
 
         MobileAds.initialize(requireContext()) {}
-        loadinterstitialAd()
+//        loadinterstitialAd()
 
 
 
@@ -75,13 +75,13 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
                     override fun onAdDismissedFullScreenContent() {
                         // Ad was dismissed, launch the image picker
                         launchImagePicker()
-                        loadinterstitialAd() // Load a new ad after showing the current one
+//                        loadinterstitialAd() // Load a new ad after showing the current one
                     }
 
                     override fun onAdFailedToShowFullScreenContent(adError: AdError) {
                         // If the ad fails to show, also launch the image picker
                         launchImagePicker()
-                        loadinterstitialAd() // Load a new ad after the failure
+//                        loadinterstitialAd() // Load a new ad after the failure
                     }
 
                     override fun onAdShowedFullScreenContent() {
@@ -92,7 +92,7 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
                 mInterstitialAd?.show(requireActivity())
             } else {
                 launchImagePicker()
-                loadinterstitialAd() // Load a new ad in case there is no ad loaded
+//                loadinterstitialAd() // Load a new ad in case there is no ad loaded
             }
         }
 
