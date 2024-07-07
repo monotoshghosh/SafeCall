@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Senior Care"
+rootProject.name = "SafeCall"
 include(":app")
