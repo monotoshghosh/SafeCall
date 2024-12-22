@@ -145,10 +145,38 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 //        }, 7900)
 //    }
 
+//    fun allowStartBtnAndGif() {
+//        // Added a null check to ensure `_binding` is not null before accessing it
+//        if (_binding == null) {
+//            Log.e(TAG, "Binding is null in allowStartBtnAndGif") // Log error if `_binding` is null
+//            return
+//        }
+//
+//        // Button background change and siren animation
+//        binding.btnHomeFragment.background = ContextCompat.getDrawable(
+//            requireContext(),
+//            R.drawable.button_pressed
+//        )
+//        binding.sirenGif.alpha = 1f  // Show image
+//
+//        Handler().postDelayed({
+//            // Added an additional null check here to prevent accessing `_binding` after fragment is destroyed
+//            if (_binding != null) {
+//                binding.btnHomeFragment.background = ContextCompat.getDrawable(
+//                    requireContext(),
+//                    R.drawable.button_not_pressed
+//                )
+//                binding.sirenGif.alpha = 0f
+//            } else {
+//                Log.e(TAG, "Binding is null in postDelayed callback") // Log error if `_binding` becomes null
+//            }
+//        }, 7900)
+//    }
+
     fun allowStartBtnAndGif() {
-        // Added a null check to ensure `_binding` is not null before accessing it
-        if (_binding == null) {
-            Log.e(TAG, "Binding is null in allowStartBtnAndGif") // Log error if `_binding` is null
+        // Ensure fragment is still attached and binding is not null
+        if (!isAdded || _binding == null) {
+            Log.e(TAG, "Fragment is not added or binding is null")
             return
         }
 
@@ -160,18 +188,19 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         binding.sirenGif.alpha = 1f  // Show image
 
         Handler().postDelayed({
-            // Added an additional null check here to prevent accessing `_binding` after fragment is destroyed
-            if (_binding != null) {
+            // Check if fragment is still added and binding is not null
+            if (isAdded && _binding != null) {
                 binding.btnHomeFragment.background = ContextCompat.getDrawable(
                     requireContext(),
                     R.drawable.button_not_pressed
                 )
                 binding.sirenGif.alpha = 0f
             } else {
-                Log.e(TAG, "Binding is null in postDelayed callback") // Log error if `_binding` becomes null
+                Log.e(TAG, "Binding is null or fragment is not added during postDelayed callback")
             }
         }, 7900)
     }
+
 
 
 
