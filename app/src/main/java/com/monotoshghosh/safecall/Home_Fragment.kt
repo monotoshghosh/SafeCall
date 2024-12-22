@@ -130,20 +130,51 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         }
     }
 
+//    fun allowStartBtnAndGif() {
+//        // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
+//        binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(),
+//            R.drawable.button_pressed
+//        )
+//        binding.sirenGif.alpha = 1f  // SHOW IMAGE
+//
+//        Handler().postDelayed({
+//            binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(),
+//                R.drawable.button_not_pressed
+//            )
+//            binding.sirenGif.alpha = 0f
+//        }, 7900)
+//    }
+
     fun allowStartBtnAndGif() {
-        // BUTTON BACKGROUND CHANGE and SIREN ANIMATION
-        binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(),
+        // Added a null check to ensure `_binding` is not null before accessing it
+        if (_binding == null) {
+            Log.e(TAG, "Binding is null in allowStartBtnAndGif") // Log error if `_binding` is null
+            return
+        }
+
+        // Button background change and siren animation
+        binding.btnHomeFragment.background = ContextCompat.getDrawable(
+            requireContext(),
             R.drawable.button_pressed
         )
-        binding.sirenGif.alpha = 1f  // SHOW IMAGE
+        binding.sirenGif.alpha = 1f  // Show image
 
         Handler().postDelayed({
-            binding.btnHomeFragment.background = ContextCompat.getDrawable(requireContext(),
-                R.drawable.button_not_pressed
-            )
-            binding.sirenGif.alpha = 0f
+            // Added an additional null check here to prevent accessing `_binding` after fragment is destroyed
+            if (_binding != null) {
+                binding.btnHomeFragment.background = ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.button_not_pressed
+                )
+                binding.sirenGif.alpha = 0f
+            } else {
+                Log.e(TAG, "Binding is null in postDelayed callback") // Log error if `_binding` becomes null
+            }
         }, 7900)
     }
+
+
+
 
     private fun getGoogleMapsLink(location: Location): String {
         return "https://www.google.com/maps/search/?api=1&query=${location.latitude},${location.longitude}"
