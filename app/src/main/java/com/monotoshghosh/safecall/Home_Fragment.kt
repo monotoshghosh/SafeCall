@@ -123,11 +123,20 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 objSound.btnSoundStart(requireActivity())
                 Log.d(TAG, "SMS sent to $phoneNumber")
                 allowStartBtnAndGif()
+                btnDisabled() // TO MAKE THE BUTTON DISABLE FOR 7 SEC ONCE PRESSED
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Failed to send SMS: ${e.message}", Toast.LENGTH_SHORT).show()
                 Log.e(TAG, "Failed to send SMS to $phoneNumber: ${e.message}")
             }
         }
+    }
+
+    private fun btnDisabled(){
+        binding.btnHomeFragment.isEnabled = false
+
+        Handler().postDelayed({
+            binding.btnHomeFragment.isEnabled = true
+        },7900)
     }
 
 //    fun allowStartBtnAndGif() {
