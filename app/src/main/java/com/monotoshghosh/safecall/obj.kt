@@ -4,6 +4,7 @@ package com.monotoshghosh.safecall
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -63,20 +64,15 @@ class obj {
                 dialog.dismiss()
                 Toast.makeText(context, "Information Saved", Toast.LENGTH_SHORT).show()
                 objSound.btnSound(context)
+
                 listener?.onProfileUpdated() // Trigger the callback
-                // here i need an intent
-//                context.startActivity(Intent(context,savePersonInfo(context,personKey!!,name,age,bloodGroup,location,phoneNo)::class.java))
-//                context.startActivity(Intent(context, savePersonInfo()::class.java))
-//                val intent = Intent(context, savePersonInfo()::class.java).apply {
-//                    putExtra("personKey", personKey)
-//                    putExtra("name", name)
-//                    putExtra("age", age)
-//                    putExtra("bloodGroup", bloodGroup)
-//                    putExtra("location", location)
-//                    putExtra("phoneNo", phoneNo)
-//                }
-//                context.startActivity(intent)
+//                context.startActivity(Intent(context,savedPersonInfo::class.java))
+                val intent = Intent(context, savedPersonInfo::class.java)
+                intent.putExtra("Person_unique_key", personKey)
+                context.startActivity(intent)
+
             }
+
             else{
                 Toast.makeText(context, "Please fill all the Details", Toast.LENGTH_SHORT).show()
                 objVibration.vibrate(context)
@@ -96,7 +92,7 @@ class obj {
         editor.putString("Blood Group",bloodGroup)
         editor.putString("Location", location)
         editor.putString("Phone", phoneNo)
-        editor.apply()
+        editor.commit() // Use commit() instead of apply()  {AS APPLY IS ASYNCHRONOUS}
 
     }
 
@@ -117,7 +113,7 @@ class obj {
         editor.putString("${personKey}_BloodGroup", bloodGroup)
         editor.putString("${personKey}_Location", location)
         editor.putString("${personKey}_Phone", phoneNo)
-        editor.apply()
+        editor.commit()
     }
 
     fun deleteSavePersonInfo(context: Context,personKey: String){

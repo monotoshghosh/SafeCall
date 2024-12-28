@@ -127,6 +127,11 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
     override fun onProfileUpdated() {
         loadPersonInfo()
     }
+    override fun onResume() {
+        super.onResume()
+        loadPersonInfo()
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
