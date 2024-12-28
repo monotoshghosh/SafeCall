@@ -126,6 +126,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
 
     override fun onProfileUpdated() {
         loadPersonInfo()
+        finish()
     }
     override fun onResume() {
         super.onResume()
