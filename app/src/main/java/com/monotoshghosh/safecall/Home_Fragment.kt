@@ -60,34 +60,38 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 objVibration.vibrate(requireContext())
                 Toast.makeText(requireContext(), "Please turn ON your Location", Toast.LENGTH_LONG).show()
             }
+            else{
+                val adminName = getAdminName()
+                val locationService = LocationService(requireContext())
 
-            val adminName = getAdminName()
-            val locationService = LocationService(requireContext())
-
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 101)
-            } else {
-                locationService.getCurrentLocation { location ->
-                    val message: String
-                    if (location != null) {
-                        val googleMapsLink = getGoogleMapsLink(location)
-                        val placeName = getPlaceName(location)
-                        message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location: $placeName.\nYou can also view the location on Google Maps here:\n$googleMapsLink"
-                    } else {
-                        message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location is unknown."
-                    }
-
-                    Log.d(TAG, "Generated message: $message")
-                    val phoneNumbers = getSavedPersonNumbers()
-                    if (phoneNumbers.isNotEmpty()) {
-                        phoneNumbers.forEach { phoneNumber ->
-                            sendSms(phoneNumber, message)
+                if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 101)
+                } else {
+                    locationService.getCurrentLocation { location ->
+                        val message: String
+                        if (location != null) {
+                            val googleMapsLink = getGoogleMapsLink(location)
+                            val placeName = getPlaceName(location)
+                            message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location: $placeName.\nYou can also view the location on Google Maps here:\n$googleMapsLink"
+                        } else {
+                            message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location is unknown."
                         }
-                    } else {
-                        Toast.makeText(requireContext(), "No phone numbers saved", Toast.LENGTH_SHORT).show()
+
+                        Log.d(TAG, "Generated message: $message")
+                        val phoneNumbers = getSavedPersonNumbers()
+                        if (phoneNumbers.isNotEmpty()) {
+                            phoneNumbers.forEach { phoneNumber ->
+                                sendSms(phoneNumber, message)
+                            }
+                        } else {
+                            Toast.makeText(requireContext(), "No phone numbers saved", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
+
             }
+
+
         }
     }
 

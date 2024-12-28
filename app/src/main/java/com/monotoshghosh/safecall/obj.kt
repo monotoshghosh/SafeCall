@@ -64,7 +64,18 @@ class obj {
                 Toast.makeText(context, "Information Saved", Toast.LENGTH_SHORT).show()
                 objSound.btnSound(context)
                 listener?.onProfileUpdated() // Trigger the callback
-
+                // here i need an intent
+//                context.startActivity(Intent(context,savePersonInfo(context,personKey!!,name,age,bloodGroup,location,phoneNo)::class.java))
+//                context.startActivity(Intent(context, savePersonInfo()::class.java))
+//                val intent = Intent(context, savePersonInfo()::class.java).apply {
+//                    putExtra("personKey", personKey)
+//                    putExtra("name", name)
+//                    putExtra("age", age)
+//                    putExtra("bloodGroup", bloodGroup)
+//                    putExtra("location", location)
+//                    putExtra("phoneNo", phoneNo)
+//                }
+//                context.startActivity(intent)
             }
             else{
                 Toast.makeText(context, "Please fill all the Details", Toast.LENGTH_SHORT).show()
