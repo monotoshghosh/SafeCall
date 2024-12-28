@@ -158,12 +158,20 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         }
     }
 
+    private var flag_for_Toast_Profile_pic = false;
+
     private fun loadPersonInfo() {
         val savedImageUri = getSavedImageUri()
         if (savedImageUri != null) {
             binding.photoSavedPersonInfo.setImageURI(savedImageUri)
         } else {
             binding.photoSavedPersonInfo.setImageResource(R.drawable.profilepic1)
+//            Toast.makeText(this, "Add a Profile Picture", Toast.LENGTH_SHORT).show()
+
+            if (!isFinishing && !flag_for_Toast_Profile_pic) {
+                Toast.makeText(this, "Add a Profile Picture", Toast.LENGTH_LONG).show()
+                flag_for_Toast_Profile_pic = true;
+            }
         }
 
         val sharedPreferences = this.getSharedPreferences("PeopleInfo", Context.MODE_PRIVATE)
