@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView
 class obj {
 
 
-    fun newRegistrationDialogBox (context:Context,personKey: String? = null, listener: OnProfileUpdatedListener? = null){
+    fun newRegistrationDialogBox (context:Context,personKey: String? = null,flag: Boolean? = null , listener: OnProfileUpdatedListener? = null){
         val dialog = Dialog(context)
         dialog.setContentView(R.layout.dialogboxnewregis)
         dialog.window?.setBackgroundDrawableResource(R.drawable.rectshape)
@@ -67,9 +67,13 @@ class obj {
 
                 listener?.onProfileUpdated() // Trigger the callback
 //                context.startActivity(Intent(context,savedPersonInfo::class.java))
-                val intent = Intent(context, savedPersonInfo::class.java)
-                intent.putExtra("Person_unique_key", personKey)
-                context.startActivity(intent)
+
+                if(flag == true){  // THIS "flag IS ADDED - SO THAT - INTENT DOESN'T WORK - WHEN EDIT IN DONE IN PROFILE"
+                    val intent = Intent(context, savedPersonInfo::class.java)
+                    intent.putExtra("Person_unique_key", personKey)
+                    context.startActivity(intent)
+                }
+
 
             }
 

@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.monotoshghosh.safecall.databinding.HomeFragmentBinding
 import java.util.Locale
 
@@ -54,11 +55,17 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         Glide.with(this).asGif().load(R.drawable.sirengif).into(sirenGifImg)
 
         binding.btnHomeFragment.setOnClickListener {
+
+            // Disable the bottom navigation bar for 7 seconds after button press
+            disableBottomNavigationBar()
+
             val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
             if (!isLocationEnabled(locationManager)) {
                 objSound.btnSoundError(requireActivity())
                 objVibration.vibrate(requireContext())
                 Toast.makeText(requireContext(), "Please turn ON your Location", Toast.LENGTH_LONG).show()
+                resetBottomNavigationBar()  // Re-enable bottom navigation if location is off
+
             }
             else{
                 val adminName = getAdminName()
@@ -135,11 +142,30 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         }
     }
 
+    private fun disableBottomNavigationBar() {
+        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bnView)
+        bottomNav?.let {
+            it.menu.setGroupEnabled(0, false)  // Disable all items
+            it.isEnabled = false // Disable the entire BottomNavigationView
+        }
+    }
+
+    private fun resetBottomNavigationBar() {
+        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bnView)
+        bottomNav?.let {
+            it.menu.setGroupEnabled(0, true)  // Enable all items
+            it.isEnabled = true // Re-enable the entire BottomNavigationView
+        }
+    }
+
     private fun btnDisabled(){
-        binding.btnHomeFragment.isEnabled = false
+        _binding?.btnHomeFragment?.isEnabled = false
+        disableBottomNavigationBar() // Disable the BottomNavigationView
 
         Handler().postDelayed({
-            binding.btnHomeFragment.isEnabled = true
+            _binding?.btnHomeFragment?.isEnabled = true
+            // After your action is done, re-enable bottom navigation
+            resetBottomNavigationBar()
         },7900)
     }
 
@@ -194,20 +220,20 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
         }
 
         // Button background change and siren animation
-        binding.btnHomeFragment.background = ContextCompat.getDrawable(
+        _binding?.btnHomeFragment?.background = ContextCompat.getDrawable(
             requireContext(),
             R.drawable.button_pressed
         )
-        binding.sirenGif.alpha = 1f  // Show image
+        _binding?.sirenGif?.alpha = 1f  // Show image
 
         Handler().postDelayed({
             // Check if fragment is still added and binding is not null
             if (isAdded && _binding != null) {
-                binding.btnHomeFragment.background = ContextCompat.getDrawable(
+                _binding?.btnHomeFragment?.background = ContextCompat.getDrawable(
                     requireContext(),
                     R.drawable.button_not_pressed
                 )
-                binding.sirenGif.alpha = 0f
+                _binding?.sirenGif?.alpha = 0f
             } else {
                 Log.e(TAG, "Binding is null or fragment is not added during postDelayed callback")
             }

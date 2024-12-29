@@ -80,7 +80,7 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
 
                 card.setOnClickListener {
                     if (!isPersonInfoSaved(personKey, it.context)) {
-                        obj().newRegistrationDialogBox(it.context, personKey)
+                        obj().newRegistrationDialogBox(it.context, personKey,true)
                     } else {
                         if (mInterstitialAd != null) {
                             mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {

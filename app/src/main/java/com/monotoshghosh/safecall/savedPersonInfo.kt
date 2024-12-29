@@ -45,6 +45,8 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         binding = ActivitySavedPersonInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         window.apply {
             statusBarColor = ContextCompat.getColor(this@savedPersonInfo,android.R.color.white)
             decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
@@ -101,7 +103,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         }
 
         binding.editSavedPersonInfo.setOnClickListener {
-            obj().newRegistrationDialogBox(this, personKey, this)
+            obj().newRegistrationDialogBox(this, personKey,true, this,)
         }
     }
 
@@ -128,9 +130,11 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         loadPersonInfo()
         finish()
     }
+
     override fun onResume() {
         super.onResume()
         loadPersonInfo()
+
     }
 
 
@@ -168,6 +172,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
             binding.photoSavedPersonInfo.setImageResource(R.drawable.profilepic1)
 //            Toast.makeText(this, "Add a Profile Picture", Toast.LENGTH_SHORT).show()
 
+            // THIS IS BLOCK IS ADDED - AS TOAST IS OPENING 2 TIMES - DUE TO onResume fun()
             if (!isFinishing && !flag_for_Toast_Profile_pic) {
                 Toast.makeText(this, "Add a Profile Picture", Toast.LENGTH_LONG).show()
                 flag_for_Toast_Profile_pic = true;
