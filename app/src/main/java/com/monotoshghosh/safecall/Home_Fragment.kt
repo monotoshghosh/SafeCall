@@ -92,6 +92,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                             }
                         } else {
                             Toast.makeText(requireContext(), "No phone numbers saved", Toast.LENGTH_SHORT).show()
+                            resetBottomNavigationBar()
                         }
                     }
                 }
