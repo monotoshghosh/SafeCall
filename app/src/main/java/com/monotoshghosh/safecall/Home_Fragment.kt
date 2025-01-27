@@ -6,6 +6,8 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.os.Handler
 import android.telephony.SmsManager
@@ -59,6 +61,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
             // Disable the bottom navigation bar for 7 seconds after button press
             disableBottomNavigationBar()
 
+            val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
             if (!isLocationEnabled(locationManager)) {
                 objSound.btnSoundError(requireActivity())
@@ -67,6 +70,14 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                 resetBottomNavigationBar()  // Re-enable bottom navigation if location is off
 
             }
+
+            else if (!isInternetEnabled(requireContext())) {
+                objSound.btnSoundError(requireActivity())
+                objVibration.vibrate(requireContext())
+                Toast.makeText(requireContext(), "Please turn ON your Internet Connection", Toast.LENGTH_LONG).show()
+                resetBottomNavigationBar() // Re-enable bottom navigation if internet is off
+            }
+
             else{
                 val adminName = getAdminName()
                 val locationService = LocationService(requireContext())
@@ -100,6 +111,19 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
             }
 
 
+        }
+    }
+
+    fun isInternetEnabled(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            else -> false
         }
     }
 
