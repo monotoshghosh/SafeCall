@@ -61,7 +61,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
         }
 
         MobileAds.initialize(this) {}
-//        loadinterstitialAd()
+        loadinterstitialAd()
 
         binding.adminPhotoChangeBtn.setOnClickListener {
 
@@ -70,13 +70,13 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
                     override fun onAdDismissedFullScreenContent() {
                         // Ad was dismissed, launch the image picker
                         launchImagePicker()
-//                        loadinterstitialAd() // Load a new ad after showing the current one
+                        loadinterstitialAd() // Load a new ad after showing the current one
                     }
 
                     override fun onAdFailedToShowFullScreenContent(adError: AdError) {
                         // If the ad fails to show, also launch the image picker
                         launchImagePicker()
-//                        loadinterstitialAd() // Load a new ad after the failure
+                        loadinterstitialAd() // Load a new ad after the failure
                     }
 
                     override fun onAdShowedFullScreenContent() {
@@ -87,7 +87,7 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
                 mInterstitialAd?.show(this)
             } else {
                 launchImagePicker()
-//                loadinterstitialAd() // Load a new ad in case there is no ad loaded
+                loadinterstitialAd() // Load a new ad in case there is no ad loaded
             }
 
         }
