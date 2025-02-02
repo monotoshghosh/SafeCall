@@ -90,7 +90,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
                         if (location != null) {
                             val googleMapsLink = getGoogleMapsLink(location)
                             val placeName = getPlaceName(location)
-                            message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location: $placeName.\nYou can also view the location on Google Maps here:\n$googleMapsLink"
+                            message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location: $placeName.\nYou can also view the location on Google Maps here:\n$googleMapsLink\n\nGet it on Play Store:\nhttps://bit.ly/3EoCsC0"
                         } else {
                             message = "ALERT!!!\n$adminName is in Danger.\nKindly contact urgently.\nCurrent location is unknown."
                         }
