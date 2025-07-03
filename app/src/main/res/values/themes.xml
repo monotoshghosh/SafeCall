@@ -18,6 +18,9 @@
         <!--    THIS IS FOR CURSOR & TEXT SELECTOR COLOR    -->
         <item name="colorPrimary">#0664CA</item>
         <item name="colorAccent">#5095DF</item>
+
+        <!--    THIS IS FOR NAVIGATION BTN BAR COLOR   -->
+        <item name="android:navigationBarColor">#000000</item>
     </style>
 
     <style name="Theme.SeniorCare" parent="Base.Theme.SeniorCare" />
@@ -26,6 +29,8 @@
     <style name="Widget.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
+
+
 
 
 

@@ -19,6 +19,10 @@
         <item name="colorPrimary">#0664CA</item>
         <item name="colorAccent">#5095DF</item>
 
+        <!--    THIS IS FOR NAVIGATION BTN BAR COLOR   -->
+        <item name="android:navigationBarColor">#000000</item>
+
+
     </style>
 
     <!--   THIS TO REMOVE BACKGROUND OF ICON OF BNB   -->
