@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.monotoshghosh.safecall"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.monotoshghosh.safecall"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 9
         versionName = "1.8"
 
