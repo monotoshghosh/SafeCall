@@ -19,6 +19,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
@@ -44,6 +45,10 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val window = requireActivity().window
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+
         MobileAds.initialize(requireContext()) {}
 
         val adRequest = AdRequest.Builder().build()

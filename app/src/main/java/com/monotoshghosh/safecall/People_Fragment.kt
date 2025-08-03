@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
@@ -35,6 +36,11 @@ class People_Fragment : Fragment(R.layout.people_fragment) {
 
     override fun onResume() {       //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onResume()            //         super.onViewCreated(view, savedInstanceState)
+
+        // for API 35
+        // Ensure layout avoids overlapping status/navigation bars
+        val window = requireActivity().window
+        WindowCompat.setDecorFitsSystemWindows(window, true)
 
         MobileAds.initialize(requireContext()) {}
 //        loadinterstitialAd()

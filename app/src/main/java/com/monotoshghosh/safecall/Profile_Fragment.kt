@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
@@ -54,6 +55,11 @@ class Profile_Fragment: Fragment(R.layout.profile_fragment), OnProfileUpdatedLis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // for API 35
+        // Set decor to fit system windows
+        val window = requireActivity().window
+        WindowCompat.setDecorFitsSystemWindows(window, true)
 
         MobileAds.initialize(requireContext()) {}
         loadinterstitialAd()

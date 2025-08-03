@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.WindowCompat
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -43,6 +44,10 @@ class savedPersonInfo : AppCompatActivity(), OnProfileUpdatedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySavedPersonInfoBinding.inflate(layoutInflater)
+
+        // for API 35
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+
         setContentView(binding.root)
 
 
