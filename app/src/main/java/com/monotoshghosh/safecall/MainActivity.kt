@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        hideNavigationBar()
+//        hideNavigationBar()
+        hideSystemBars()
 
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -58,5 +59,13 @@ class MainActivity : AppCompatActivity() {
             else -> false
         }
     }
+
+    private fun hideSystemBars() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val controller = WindowInsetsControllerCompat(window, window.decorView)
+        controller.hide(WindowInsetsCompat.Type.systemBars()) // Hides both status & navigation bars
+        controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+    }
+
 
 }
