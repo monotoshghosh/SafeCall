@@ -27,7 +27,7 @@
         android:id="@+id/person1"
         android:layout_width="110dp"
         android:layout_height="113dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
@@ -51,7 +51,7 @@
         android:layout_width="110dp"
         android:layout_height="113dp"
 
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
@@ -76,7 +76,7 @@
         android:layout_width="110dp"
         android:layout_height="113dp"
 
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
@@ -98,14 +98,12 @@
         android:id="@+id/person4"
         android:layout_width="110dp"
         android:layout_height="113dp"
-
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/person3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toEndOf="@+id/person3"
         app:layout_constraintTop_toTopOf="@+id/person3"
         app:layout_constraintVertical_bias="0.0">
 
@@ -114,22 +112,20 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/addphoto3"
             android:scaleType="centerCrop"
-             />
+            android:src="@drawable/addphoto3" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/person6"
         android:layout_width="110dp"
         android:layout_height="113dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/person5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toEndOf="@+id/person5"
         app:layout_constraintTop_toTopOf="@+id/person5"
         app:layout_constraintVertical_bias="0.0">
 
@@ -138,9 +134,8 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/addphoto3"
             android:scaleType="centerCrop"
-            />
+            android:src="@drawable/addphoto3" />
 
     </androidx.cardview.widget.CardView>
 
@@ -148,30 +143,28 @@
         android:id="@+id/person2"
         android:layout_width="110dp"
         android:layout_height="113dp"
+        android:layout_marginEnd="50dp"
         android:backgroundTint="#F8F5F5"
         app:cardCornerRadius="8dp"
         app:cardElevation="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/person1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toEndOf="@+id/person1"
         app:layout_constraintTop_toTopOf="@+id/person1"
         app:layout_constraintVertical_bias="0.0">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/person2Img"-->
-<!--            android:layout_width="55dp"-->
-<!--            android:layout_height="55dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:src="@drawable/add_image2" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/person2Img"-->
+        <!--            android:layout_width="55dp"-->
+        <!--            android:layout_height="55dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/add_image2" />-->
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/person2Img"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/addphoto3"
-            />
+            android:src="@drawable/addphoto3" />
     </androidx.cardview.widget.CardView>
 
 
