@@ -89,6 +89,7 @@ class Home_Fragment : Fragment(R.layout.home_fragment) {
 
                 if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 101)
+                    resetBottomNavigationBar()  // Re-enable bottom navigation if location is off
                 } else {
                     locationService.getCurrentLocation { location ->
                         val message: String
